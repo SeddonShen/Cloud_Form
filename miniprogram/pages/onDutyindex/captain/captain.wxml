@@ -1,0 +1,78 @@
+<view class="padding text-center">
+	<view class="padding-xl radius shadow bg-white text-xxl">
+		<text wx:if="{{!submit}}" class="text-bold margin-bottom" style="color:#ba9b5a;">发布排班</text>
+		<!-- <view class="text-lg text-grey padding-top"><text>仅能同时发布一个班次</text></view>  -->
+		<view>
+			<form bindsubmit="submit">
+				<picker name="date" mode="date" value="{{date}}" start="2020-08-01" end="2021-12-31" bindchange="dateChange">
+					<view class="group">
+						<view class="title">日期选择</view>
+						<view class="picker">
+							{{date}}
+						</view>
+					</view>
+				</picker>
+				<picker name="interval" bindchange="intervalChange" value="{{interval}}" range="{{interval_picker}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">时段</view>
+							{{interval}}
+						</view>
+					</view>
+				</picker>
+				<picker name="information_desk" bindchange="information_deskChange" value="{{information_desk}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">人员疏导</view>
+							{{information_desk}}人
+						</view>
+					</view>
+				</picker>
+				<picker name="expostor_desk" bindchange="expostor_deskChange" value="{{expostor_desk}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">一码通扫描</view>
+							{{expostor_desk}}人
+						</view>
+					</view>
+				</picker>
+				<picker name="expose_robot" bindchange="expose_robotChange" value="{{expose_robot}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">网络维护</view>
+							{{expose_robot}}人
+						</view>
+					</view>
+				</picker>
+				<picker name="teenager_learn" bindchange="teenager_learnChange" value="{{teenager_learn}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">餐饮保障</view>
+							{{teenager_learn}}人
+						</view>
+					</view>
+				</picker>
+				<picker name="hall_desk" bindchange="hall_deskChange" value="{{hall_desk}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">志愿者管理</view>
+							{{hall_desk}}人
+						</view>
+					</view>
+				</picker>
+				<picker name="expostor" bindchange="expostorChange" value="{{expostor}}" range="{{number}}">
+					<view class="picker">
+						<view class="group">
+							<view class="title">机动志愿者</view>
+							<!-- {{index?picker[index]:'2人'}} -->
+							{{expostor}}人
+						</view>
+					</view>
+				</picker>
+				<button wx:if="{{!submit}}" class="cu-btn line-brown lg" form-type="submit" style="width:100%;">发布</button>
+				<button wx:if="{{submit}}" open-type="share" class="cu-btn line-brown lg" style="width:100%;">分享给朋友</button>
+			</form>
+		</view>
+	</view>
+
+</view>

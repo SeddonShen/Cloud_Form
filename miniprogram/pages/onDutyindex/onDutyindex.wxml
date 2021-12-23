@@ -1,0 +1,30 @@
+<view wx:if="{{captain}}" class="padding text-center">
+	<view class="padding-xl radius shadow bg-white text-xl">
+		{{team}}
+		<view class="padding text-lg">队长：{{name}}
+		</view>
+		<view class="padding flex flex-direction">
+			<button bindtap="tocaptain" class="cu-btn line-brown lg">发布排班</button>
+		</view>
+		<view class="padding flex flex-direction">
+			<button bindtap="tolook" class="cu-btn line-brown lg">查看已发布班次</button>
+		</view>
+	</view>
+</view>
+<view class="padding text-center">
+	<view class="padding-xl radius shadow bg-white text-xl">
+		{{team}}
+		<view wx:if="{{!groupdate.length==0}}" class="cu-list menu card-menu padding-top" >
+<navigator wx:for="{{groupdate}}" url="/pages/onDutyindex/signup/signup?_id={{item._id}}" wx:key="index">
+			<view  class='cu-item content title'  >
+				<text class="cuIcon-activityfill lg text-brown"></text>
+				<text class="text-888  text-lg text-left">{{item.date}} {{item.interval}}</text>
+				<!-- 下面那条线可以加判断 -->
+				<view style='transform:rotate(0deg);transition:all 0.4s;'></view>
+			</view>
+
+</navigator>
+		</view>
+		<view wx:else class="padding-xl text-xxl">暂无志愿服务</view>
+	</view>
+</view>
