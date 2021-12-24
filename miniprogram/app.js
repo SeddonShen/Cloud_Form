@@ -32,5 +32,27 @@ App({
     //   phone: '01234567890',
     //   stuid: '2019300000'
     // };
+    wx.cloud.database().collection('notice')
+      .where({
+        flag: true
+      })
+      .field({
+        text: true
+      })
+      .get().then(res => {
+        console.log(res)
+        let data = res.data
+        if (data.length !== 0) {
+          wx.showModal({
+            title: '温馨提示',
+            content: data[0].text,
+            showCancel: false,
+            confirmText: '我已知悉',
+            confirmColor: '#ab0313',
+          })
+        }
+      }).catch(e => {
+        console.log(e)
+      })
   }
 });
