@@ -53,6 +53,18 @@
           "pathName": "pages/onDutyindex/signup/signup",
           "query": "_id=54ad1eea61c52bd700275bb8279231c3",
           "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/signup/signup",
+          "pathName": "pages/onDutyindex/signup/signup",
+          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/signup/signup",
+          "pathName": "pages/onDutyindex/signup/signup",
+          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+          "scene": null
         }
       ]
     }

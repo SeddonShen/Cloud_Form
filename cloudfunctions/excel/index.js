@@ -17,13 +17,15 @@ exports.main = async (event, context) => {
     //2，定义存储数据的
     let alldata = [];
     // let row = ['岗位', '姓名']; //表属性
-    let row = ['姓名']; //表属性
+    let row = ['序号','姓名','手机号','学号','后台提交时间(UTC)']; //表属性
     alldata.push(row);
     let arr0 = [];
     // arr0.push('岗位1');
     let member0 = userdata.information_desk.member
     for (let i in member0) {
-      alldata.push([member0[i]])
+      var stu_no = parseInt(i) + parseInt(1)
+      alldata.push([stu_no,member0[i].nickname,member0[i].phone,member0[i].stuid,member0[i].submit_time])
+
       // arr0.push(member0[i])
       // if (i == member0.length - 1) {
       //   alldata.push(arr0)

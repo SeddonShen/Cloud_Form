@@ -14,7 +14,7 @@ Page({
    */
   data: {
     _id:'',
-    work: 'information_desk',
+    work: '',
     onduty: {},
     mywork: [0, 0, 0, 0, 0, 0]
   },
@@ -39,63 +39,30 @@ Page({
   //   console.log(e)
   //   work = e.detail.value
   // },
-  get_ticket(){
+  get_ticket(limit){
     var member = work + '.member'
+    console.log(member)
     var openid = app.globalData.openid
     var nickname = app.globalData.name
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
     var that = this
-    db.collection("onDuty").where({
-      _id: _id
-    }).orderBy('submit_time','desc').field({
-      count : true,
-      information_desk:true
-    }).get().then(res => {
-      console.log(res.data[0].count,res.data[0].information_desk.limit)
-      if(res.data[0].count < res.data[0].information_desk.limit){
-        // console.log("True")
-        console.log('还没满')
-        onDuty.doc(_id).update({
-          data: {
-            count:_.inc(1),
-            [member]: _.push({openid,nickname,stuid,phone}),
-            openid: _.addToSet(app.globalData.openid)
-          },
-          success(res){
-            // this.setData({
-            //   work: work
-            // })
-            console.log('应该有个弹框')
-            wx.showModal({
-              content: '报名成功，请关注后续通知',
-              confirmColor: '#a5673f',
-              complete: res => {
-                console.log(res)
-                if (res.confirm) {
-                  console.log("用户确认")
-                }
-              }
-            })
-          },
-          fail(res){
-            wx.showModal({
-              content: '报名失败，请刷新重试',
-              confirmColor: '#a5673f',
-              complete: res => {
-                console.log(res)
-                if (res.confirm) {
-                  console.log("用户确认")
-                }
-              }
-            })
-          }
-        })
-        // return true
-      }else{
-        console.log('满了')
+    var submit_time = new Date()
+    console.log('到这里')
+    db.collection('onDuty').where({
+      _id: _id,
+      count: _.lt(limit)
+    }).update({
+      data: {
+        count: _.inc(1),
+        [member]: _.push({openid,nickname,stuid,phone,submit_time}),
+        openid: _.addToSet(app.globalData.openid)
+      }
+    }).then(function(d){
+      if(d.stats.updated > 0) {/*抢购成功*/
+        console.log('成功')
         wx.showModal({
-          content: '人员已满',
+          content: '报名成功，请关注后续通知',
           confirmColor: '#a5673f',
           complete: res => {
             console.log(res)
@@ -105,11 +72,90 @@ Page({
           }
         })
       }
-      console.log('末尾')
-      // return false
+      else {/*抢购失败*/
+        console.log('抢失败')
+        wx.showModal({
+          content: '报名失败，请刷新重试',
+          confirmColor: '#a5673f',
+          complete: res => {
+            console.log(res)
+            if (res.confirm) {
+              console.log("用户确认")
+            }
+          }
+        })
+      // console.log(d)
+      }
     })
+
+    // db.collection("onDuty").where({
+    //   _id: _id
+    // }).orderBy('submit_time','desc').field({
+    //   count : true,
+    //   information_desk:true
+    // }).get().then(res => {
+    //   console.log(res.data[0].count,res.data[0].information_desk.limit)
+    //   if(res.data[0].count < res.data[0].information_desk.limit){
+    //     // console.log("True")
+    //     console.log('还没满')
+    //     onDuty.doc(_id).update({
+    //       data: {
+    //         count:_.inc(1),
+    //         [member]: _.push({openid,nickname,stuid,phone}),
+    //         openid: _.addToSet(app.globalData.openid)
+    //       },
+    //       success(res){
+    //         // this.setData({
+    //         //   work: work
+    //         // })
+    //         console.log('应该有个弹框')
+            // wx.showModal({
+            //   content: '报名成功，请关注后续通知',
+            //   confirmColor: '#a5673f',
+            //   complete: res => {
+            //     console.log(res)
+            //     if (res.confirm) {
+            //       console.log("用户确认")
+            //     }
+            //   }
+            // })
+    //       },
+    //       fail(res){
+            // wx.showModal({
+            //   content: '报名失败，请刷新重试',
+            //   confirmColor: '#a5673f',
+            //   complete: res => {
+            //     console.log(res)
+            //     if (res.confirm) {
+            //       console.log("用户确认")
+            //     }
+            //   }
+            // })
+    //       }
+    //     })
+    //     // return true
+    //   }else{
+    //     console.log('满了')
+    //     wx.showModal({
+    //       content: '人员已满',
+    //       confirmColor: '#a5673f',
+    //       complete: res => {
+    //         console.log(res)
+    //         if (res.confirm) {
+    //           console.log("用户确认")
+    //         }
+    //       }
+    //     })
+    //   }
+    //   console.log('末尾')
+    //   // return false
+    // })
   },
-  getWork() {
+  getWork(e) {
+    console.log(e.currentTarget.dataset)
+    var limit = e.currentTarget.dataset.count
+    console.log(limit)
+    console.log('OK')
     work = 'information_desk'
     if (!work) {
       wx.showToast({
@@ -127,7 +173,7 @@ Page({
           console.log('订阅成功')
           console.log('开始调用')
           console.log(res)
-          this.get_ticket()
+          this.get_ticket(limit)
         }else{
           console.log('订阅失败')
           // console.log(err)
@@ -192,6 +238,10 @@ Page({
         })
       }
     }
+    wx.showLoading({
+      title: '正在加载',
+      mask:true,
+    })
     _id = options._id
     var that = this
     onDuty.doc(_id).watch({
@@ -211,10 +261,19 @@ Page({
       _id:_id
     })
     // for(var i=0;i<=1000;i++){
-    //   console.log(i)
-    //   this.getWork()
+    //   console.log('压力测试第' + i + '次')
+    //   this.get_ticket(50)
     // }
     // this.people_count(_id)
+    // wx.showLoading({
+    //   title: '校验身份信息',
+    //   mask:true,
+    // })
+    wx.hideLoading({
+      success: (res) => {
+        console.log('加载成功')
+      },
+    })
   },
 
   test_hasWork(onduty) {
