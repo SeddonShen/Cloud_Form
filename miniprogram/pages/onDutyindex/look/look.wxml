@@ -8,7 +8,7 @@
 					<view  class='cu-item content title'>
 				<text wx:if="{{!item.progress}}" class="cuIcon-check lg text-green"></text>
 				<text wx:else class="cuIcon-activityfill lg text-brown"></text>
-				<text class="text-888  text-lg text-left">{{item.date}} {{item.interval}}</text>
+				<text class="text-888  text-lg text-left">{{item.datesend}} {{item.time_begin}} - {{item.time_end}}</text>
 				<!-- 下面那条线可以加判断 -->
 				<view style='transform:rotate(0deg);transition:all 0.4s;'></view>
 			</view>

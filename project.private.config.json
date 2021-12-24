@@ -71,6 +71,12 @@
           "pathName": "pages/onDutyindex/look/detail/detail",
           "query": "_id=5b049cc861c5c8700044ebd45d94b7c0",
           "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/captain/captain",
+          "pathName": "pages/onDutyindex/captain/captain",
+          "query": "",
+          "scene": null
         }
       ]
     }

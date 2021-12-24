@@ -37,8 +37,10 @@ Page({
     db.collection("onDuty").where({
       team: app.globalData.group,
     }).orderBy('submit_time','desc').field({
-      date: true,
-      interval: true,
+      datesend: true,
+      time_begin:true,
+      time_end:true,
+      // interval: true,
       progress:true,
       _id:true
     }).get().then(res => {

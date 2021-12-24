@@ -5,13 +5,13 @@
 			<view class="cu-form-group margin-top">
 				<view class="title">值班日期</view>
 				<view style="font-size: 30rpx;">
-					{{onduty.date}}
+					{{onduty.datesend}}
 				</view>
 			</view>
 			<view class="cu-form-group">
 				<view class="title">时段</view>
 				<view style="font-size: 30rpx;">
-					{{onduty.interval}}
+					{{onduty.time_begin}} - {{onduty.time_end}}
 				</view>
 			</view>
 		</view>

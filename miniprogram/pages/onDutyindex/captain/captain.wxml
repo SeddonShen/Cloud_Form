@@ -4,7 +4,7 @@
 		<!-- <view class="text-lg text-grey padding-top"><text>仅能同时发布一个班次</text></view>  -->
 		<view>
 			<form bindsubmit="submit">
-				<picker name="date" mode="date" value="{{date}}" start="2020-08-01" end="2021-12-31" bindchange="dateChange">
+				<picker name="date" mode="date" value="{{date}}" start="2021-12-01" end="2022-12-31" bindchange="dateChange">
 					<view class="group">
 						<view class="title">日期选择</view>
 						<view class="picker">
@@ -12,15 +12,37 @@
 						</view>
 					</view>
 				</picker>
-				<picker name="interval" bindchange="intervalChange" value="{{interval}}" range="{{interval_picker}}">
+
+
+				<picker mode="time" value="{{time_begin}}" start="00:00" end="23:59" bindchange="TimeChange"
+					data-pickertype='begin'>
+					<view class="group">
+						<view class="title">开始时间</view>
+						<view class="picker">
+							{{time_begin}}
+						</view>
+					</view>
+				</picker>
+
+				<picker mode="time" value="{{time_end}}" start="00:00" end="23:59" bindchange="TimeChange"
+					data-pickertype='end'>
+					<view class="group">
+						<view class="title">结束时间</view>
+						<view class="picker">
+							{{time_end}}
+						</view>
+					</view>
+				</picker>
+				<!-- <picker name="interval" bindchange="intervalChange" value="{{interval}}" range="{{interval_picker}}">
 					<view class="picker">
 						<view class="group">
 							<view class="title">时段</view>
 							{{interval}}
 						</view>
 					</view>
-				</picker>
-				<picker name="information_desk" bindchange="information_deskChange" value="{{information_desk}}" range="{{number}}">
+				</picker> -->
+				<picker name="information_desk" bindchange="information_deskChange" value="{{information_desk}}"
+					range="{{number}}">
 					<view class="picker">
 						<view class="group">
 							<view class="title">人数</view>
@@ -28,6 +50,39 @@
 						</view>
 					</view>
 				</picker>
+				<!-- <input model:value="{{stuid}}" placeholder="人数" type="number" /> -->
+
+
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传（在推送中显示）
+			<!-- <image src="cloud://cloud1-0gex1p2d827cce36.636c-cloud1-0gex1p2d827cce36-1308935795/2021,12,2422,21,25.png"></image> -->
+		</view>
+		<view class="action">
+			最多一张
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" bindtap="ViewImage" data-url="{{imgList}}" wx:if="{{imgList.length>0}}">
+				<image src='{{imgList}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+
+				<view>
+					备注信息
+				</view>
+				<view class="cu-form-group margin-top">
+					<textarea maxlength="-1" value="{{text_input}}" bindinput="textareaAInput" placeholder="备注信息"></textarea>
+				</view>
 				<!-- <picker name="expostor_desk" bindchange="expostor_deskChange" value="{{expostor_desk}}" range="{{number}}">
 					<view class="picker">
 						<view class="group">

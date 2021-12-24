@@ -20,9 +20,11 @@ Page({
       team: app.globalData.group,
       progress: true,
     }).orderBy('submit_time', 'desc').field({
-      date: true,
-      interval: true,
-      _id: true
+      datesend: true,
+      // interval: true,
+      _id: true,
+      time_begin:true,
+      time_end:true
     }).get().then(res => {
       console.log(res)
       this.setData({
