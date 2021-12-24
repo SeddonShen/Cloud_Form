@@ -63,7 +63,7 @@ Page({
         console.log('成功')
         wx.showModal({
           content: '报名成功，请关注后续通知',
-          confirmColor: '#a5673f',
+          confirmColor: '#AB0313',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -76,7 +76,7 @@ Page({
         console.log('抢失败')
         wx.showModal({
           content: '报名失败，请刷新重试',
-          confirmColor: '#a5673f',
+          confirmColor: '#AB0313',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -111,7 +111,7 @@ Page({
     //         console.log('应该有个弹框')
             // wx.showModal({
             //   content: '报名成功，请关注后续通知',
-            //   confirmColor: '#a5673f',
+            //   confirmColor: '#ab0313',
             //   complete: res => {
             //     console.log(res)
             //     if (res.confirm) {
@@ -123,7 +123,7 @@ Page({
     //       fail(res){
             // wx.showModal({
             //   content: '报名失败，请刷新重试',
-            //   confirmColor: '#a5673f',
+            //   confirmColor: '#ab0313',
             //   complete: res => {
             //     console.log(res)
             //     if (res.confirm) {
@@ -138,7 +138,7 @@ Page({
     //     console.log('满了')
     //     wx.showModal({
     //       content: '人员已满',
-    //       confirmColor: '#a5673f',
+    //       confirmColor: '#ab0313',
     //       complete: res => {
     //         console.log(res)
     //         if (res.confirm) {
@@ -179,7 +179,7 @@ Page({
           // console.log(err)
           wx.showModal({
             content: '请允许接收订阅消息',
-            confirmColor: '#a5673f',
+            confirmColor: '#ab0313',
             complete: res => {
               console.log(res)
               if (res.confirm) {
@@ -200,7 +200,7 @@ Page({
   resetWork() {
     wx.showModal({
       content: '重新选择可能会导致现有岗位被其他志愿者申请哦，是否重新选择',
-      confirmColor: '#a5673f',
+      confirmColor: '#ab0313',
       complete: res => {
         console.log(res)
         if (res.confirm) {

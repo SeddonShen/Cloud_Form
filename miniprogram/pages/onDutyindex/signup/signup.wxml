@@ -1,6 +1,6 @@
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#ba9b5a;">本次排班时段</text>
+		<text class="text-bold" style="color:#AB0313;">本次排班时段</text>
 		<view>
 			<view class="cu-form-group margin-top">
 				<view class="title">值班日期</view>
@@ -20,7 +20,7 @@
 
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#ba9b5a;">已报名</text>
+		<text class="text-bold" style="color:#AB0313;">已报名</text>
 		<!-- <view class="text-lg text-grey padding-top padding-bottom"><text>可能与最后结果不一致</text></view> -->
 		<view class="padding text-xxl">
 			{{onduty.count}}/{{onduty.information_desk.limit}}人

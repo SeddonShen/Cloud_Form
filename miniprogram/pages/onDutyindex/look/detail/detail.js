@@ -95,7 +95,7 @@ Page({
       content: '结束报名将推送通知给队员（只能一次）',
       confirmText: '确定通知',
       cancelText: '我再想想',
-      confirmColor: '#a5673f',
+      confirmColor: '#ab0313',
       complete: res0 => {
         console.log('完成1')
         console.log(res0.confirm)
@@ -143,7 +143,7 @@ Page({
         wx.showModal({
           content: '请选择保存方式',
           confirmText: '复制地址',
-          confirmColor: '#a5673f',
+          confirmColor: '#ab0313',
           cancelText: '保存本地',
           complete: res0 => {
             if (res0.confirm) {
@@ -171,7 +171,7 @@ Page({
 
             wx.showModal({
               content: '已保存在本地' + res2.savedFilePath + '目录下,是否现在打开',
-              confirmColor: '#a5673f',
+              confirmColor: '#ab0313',
               complete: res3 => {
                 if (res3.confirm) {
 

@@ -1,6 +1,6 @@
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#ba9b5a;">本次排班时段</text>
+		<text class="text-bold" style="color:#AB0313;">本次排班时段</text>
 		<view>
 			<view class="cu-form-group margin-top">
 				<view class="title">值班日期</view>
@@ -19,7 +19,7 @@
 </view>
 <view class="padding text-center">
 	<view class="padding radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#ba9b5a;">详情须知</text>
+		<text class="text-bold" style="color:#AB0313;">详情须知</text>
 		<view class="padding">
 			<text>{{onduty.notice}}</text>
 		</view>

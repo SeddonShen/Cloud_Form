@@ -26,7 +26,13 @@
 </view>
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xl">
-		{{team}}
+		<!-- {{team}} -->
+		<view class="img-warp">
+			<image src="https://636c-cloud1-0gex1p2d827cce36-1308935795.tcb.qcloud.la/title.gif?sign=81df30a281b0521c3c70d510bcaa670a&t=1640355612"></image>
+		</view>
+		<view style="margin-top: 20rpx;">
+			{{team}}
+		</view>
 		<view wx:if="{{!groupdate.length==0}}" class="cu-list menu card-menu padding-top">
 			<navigator wx:for="{{groupdate}}" url="/pages/onDutyindex/signup/signup?_id={{item._id}}" wx:key="index">
 				<view class='cu-item content title'>

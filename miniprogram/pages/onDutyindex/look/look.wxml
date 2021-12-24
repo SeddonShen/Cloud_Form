@@ -1,6 +1,6 @@
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xl">
-		<view class="text-xxl padding-bottom"><text class="text-bold" style="color:#ba9b5a;">排班管理</text></view>
+		<view class="text-xxl padding-bottom"><text class="text-bold" style="color:#AB0313;">排班管理</text></view>
 		{{team}}
 		<view wx:if="{{!groupdate.length==0}}" class="cu-list menu card-menu padding-top">
 		<navigator wx:for="{{groupdate}}" url="/pages/onDutyindex/look/detail/detail?_id={{item._id}}"  wx:key="index">
