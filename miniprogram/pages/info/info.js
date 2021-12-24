@@ -5,7 +5,7 @@ Page({
         name: '',
         college: 0,
         phone: '',
-        stuId: '',
+        stuid: '',
         flag: false,
         colleges: [
             '未选择学院',
@@ -72,7 +72,7 @@ Page({
                     name: this.data.name,
                     college: this.data.college,
                     phone: this.data.phone,
-                    stuId: this.data.stuId,
+                    stuid: this.data.stuid,
                 },
             }).then(function (res) {
                 wx.showToast({
@@ -113,7 +113,7 @@ Page({
                 name: userInfo.name,
                 college: userInfo.college,
                 phone: userInfo.phone,
-                stuId: userInfo.stuId,
+                stuid: userInfo.stuid,
                 flag: true
             })
             return
@@ -139,7 +139,7 @@ Page({
                         name: result.data.name,
                         college: result.data.college,
                         phone: result.data.phone,
-                        stuId: result.data.stuId,
+                        stuid: result.data.stuid,
                         flag: true
                     })
                 } else {
@@ -161,7 +161,7 @@ Page({
      * 检查需要输入的字段
      */
     check() {
-        if (this.data.name == '' || this.data.college == 0 || this.data.stuId == '') {
+        if (this.data.name == '' || this.data.college == 0 || this.data.stuid == '') {
             wx.showToast({
                 title: '请完善信息',
                 icon: 'none'

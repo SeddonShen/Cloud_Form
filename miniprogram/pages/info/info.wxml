@@ -23,7 +23,7 @@
                 <input model:value="{{phone}}" placeholder="请输入手机号码" type="number" />
             </view>
             <view class="input-item">
-                <input model:value="{{stuId}}" placeholder="请输入学号" type="number" />
+                <input model:value="{{stuid}}" placeholder="请输入学号" type="number" />
             </view>
         </view>
         <view class="padding flex flex-direction">

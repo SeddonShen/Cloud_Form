@@ -32,7 +32,7 @@ exports.main = async (event, context) => {
         name: event.name,
         college: event.college,
         phone: event.phone,
-        stuId: event.stuId,
+        stuid: event.stuid,
         openid: openid
     }
     // 插入或更新
@@ -43,7 +43,7 @@ exports.main = async (event, context) => {
             name: event.name,
             college: event.college,
             phone: event.phone,
-            stuId: event.stuId,
+            stuid: event.stuid,
         },
     }).then(function (res) {
         return {res,result}
