@@ -1,0 +1,32 @@
+/* page{
+    background-color: #F1F1F1;
+}
+.info-warp{
+    margin: 30rpx;
+}
+.info-contaienr{
+    background-color: #fff;
+    min-height: 300rpx;
+    box-shadow: 0 0 5px 5px #111;
+} */
+.title{
+    font-size: 50rpx;
+}
+.wxavatar {
+    overflow: hidden;
+    display: block;
+    width: 160rpx;
+    height: 160rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.input-item{
+    border: 1rpx solid var(--brown);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 25rpx;
+}

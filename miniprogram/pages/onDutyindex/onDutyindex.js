@@ -11,6 +11,23 @@ Page({
     captain: false,
     groupdate:[]
   },
+  onLoad: function (options) {
+    this.getUserInfo()
+    // this.setData({
+    //   team: app.globalData.group,
+    //   name: app.globalData.name,
+    //   captain: app.globalData.captain
+    // })
+    // console.log(app.globalData)
+    // console.log(this.data.team)
+    // console.log(this.data.name)
+  },
+
+  onShow: function () {
+    // this.getDuty()
+    this.getUserInfo()
+  },
+
   tocaptain() {
     wx.navigateTo({
       url: '/pages/onDutyindex/captain/captain',
@@ -21,31 +38,12 @@ Page({
       url: '/pages/onDutyindex/look/look',
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      team: app.globalData.group,
-      name: app.globalData.name,
-      captain: app.globalData.captain
+  toInfo(){
+    wx.navigateTo({
+      url: '/pages/info/info',
     })
-    console.log(app.globalData)
-    console.log(this.data.team)
-    console.log(this.data.name)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  getDuty(){
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress:true,
@@ -61,38 +59,32 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getUserInfo(){
+    let that = this
+    wx.cloud.callFunction({
+      name: 'getUserInfo',
+    }).then(function (res) {
+      let result = res.result
+      if(result.flag){
+        app.globalData = {
+          group: result.data.group,
+          name: result.data.name,
+          captain: result.data.captain,
+          openid: result.data._id,
+          phone: result.data.phone,
+          stuid: result.data.stuid
+        }
+        that.setData({
+          team: app.globalData.group,
+          name: app.globalData.name,
+          captain: app.globalData.captain
+        })
+        that.getDuty()
+      } else {
+        wx.redirectTo({
+          url: '/pages/info/info'
+        })
+      }
+    })
   }
 })
