@@ -61,12 +61,11 @@ Page({
     // timegang = timegang.replace(/(-)/, '年');
     // timegang = timegang.replace(/(-)/, '月');
     // timegang = timegang + '日'
-    // pages/onDutyindex/look/show/show
     wx.cloud.callFunction({
       name: "send",
       data: {
         touser: openid,
-        page:"pages/onDutyindex/look/show/show?_id="+_id,
+        page:"pages/onDutyindex/look/detail/detail?_id="+_id,
         name1: nickname,
         number:stuid,
         time:this.data.onduty.date,
@@ -237,9 +236,6 @@ Page({
   onLoad: function (options) {
     _id = options._id
     var that = this
-    this.setData({
-      captain:app.globalData.captain
-    })
     onDuty.doc(_id).watch({
       onChange: function (snapshot) {
         console.log('snapshot', snapshot)
@@ -254,7 +250,11 @@ Page({
       }
     })
   },
-
+  showImg(){
+    wx.previewImage({
+      urls: [this.data.onduty.imgList]
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

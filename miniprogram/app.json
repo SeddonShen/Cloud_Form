@@ -6,7 +6,8 @@
     "pages/onDutyindex/look/look",
     "pages/onDutyindex/look/detail/detail",
     "pages/index/index",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/onDutyindex/look/show/show"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
