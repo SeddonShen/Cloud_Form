@@ -17,20 +17,20 @@ App({
     // team: app.globalData.group,
     // name: app.globalData.name,
     // captain: app.globalData.captain
-    wx.cloud.callFunction({
-      name : 'login',
-      success(res){
-        console.log(res)
-        that.globalData.openid = res.result.openid
-      },
-    })
+    // wx.cloud.callFunction({
+    //   name : 'login',
+    //   success(res){
+    //     console.log(res)
+    //     that.globalData.openid = res.result.openid
+    //   },
+    // })
     this.globalData = {
-      group : '西北工业大学疫情防控志愿服务',
-      name : '申世东',
-      captain:true,
-      openid:'oO4NG5WCH4deh3jpmgAQnrhjCK-Q',
-      phone:'19929931316',
-      stuid:'2019300656'
+      group: '疫情防控志愿服务',
+      name: '学生',
+      captain: false,
+      openid: 'oO4NG5WCH4deh3jpmgAQnrhjCK-Q',
+      phone: '01234567890',
+      stuid: '2019300000'
     };
   }
 });
