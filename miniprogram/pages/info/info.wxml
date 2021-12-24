@@ -27,7 +27,7 @@
             </view>
         </view>
         <view class="padding flex flex-direction">
-            <button bindtap="updateUserInfo" class="cu-btn line-brown lg">提交信息</button>
+            <button bindtap="updateUserInfo" class="cu-btn line-brown lg">更新信息</button>
         </view>
         <view wx:if="{{flag}}" class="padding-xs flex flex-direction">
             <button bindtap="toIndex" class="cu-btn line-brown lg">返回首页</button>

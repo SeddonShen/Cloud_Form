@@ -11,20 +11,29 @@ exports.main = async (event, context) => {
     const db = cloud.database();
     let userTable = db.collection('user')
     // 是否队长
-    let userData = await userTable.doc(openid).get().then(function(res){
+    let userData = await userTable.doc(openid).get().then(function (res) {
         return {
             flag: true,
             data: res.data
         }
-    }).catch(e=>{
+    }).catch(e => {
         return {
             flag: false
         }
     })
     // 设置队长属性
     let captain = false
-    if(userData.flag&&userData.data.captain){
+    if (userData.flag && userData.data.captain) {
         captain = true
+    }
+    let result = {
+        group: '西北工业大学疫情防控志愿服务',
+        captain: captain,
+        name: event.name,
+        college: event.college,
+        phone: event.phone,
+        stuId: event.stuId,
+        openid: openid
     }
     // 插入或更新
     return await userTable.doc(openid).set({
@@ -36,5 +45,7 @@ exports.main = async (event, context) => {
             phone: event.phone,
             stuId: event.stuId,
         },
+    }).then(function (res) {
+        return {res,result}
     })
 }

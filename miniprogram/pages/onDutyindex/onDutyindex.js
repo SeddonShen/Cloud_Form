@@ -2,70 +2,58 @@ var app = getApp();
 const db = wx.cloud.database()
 const user = db.collection("user")
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     team: "",
     name: "",
     captain: false,
-    groupdate:[]
+    groupdate: []
   },
-  onLoad: function (options) {
-    this.getUserInfo()
-    // this.setData({
-    //   team: app.globalData.group,
-    //   name: app.globalData.name,
-    //   captain: app.globalData.captain
-    // })
-    // console.log(app.globalData)
-    // console.log(this.data.team)
-    // console.log(this.data.name)
-  },
-
   onShow: function () {
-    // this.getDuty()
     this.getUserInfo()
   },
-
-  tocaptain() {
-    wx.navigateTo({
-      url: '/pages/onDutyindex/captain/captain',
-    })
-  },
-  tolook() {
-    wx.navigateTo({
-      url: '/pages/onDutyindex/look/look',
-    })
-  },
-  toInfo(){
-    wx.navigateTo({
-      url: '/pages/info/info',
-    })
-  },
-  getDuty(){
+  
+  /**
+   * 获取志愿服务列表
+   */
+  getDuty() {
     db.collection("onDuty").where({
       team: app.globalData.group,
-      progress:true,
-    }).orderBy('submit_time','desc').field({
+      progress: true,
+    }).orderBy('submit_time', 'desc').field({
       date: true,
       interval: true,
-      _id:true
+      _id: true
     }).get().then(res => {
       console.log(res)
       this.setData({
-        groupdate:res.data
+        groupdate: res.data
       })
     })
   },
 
-  getUserInfo(){
+  /**
+   * 获取用户信息
+   */
+  getUserInfo() {
+    let userInfo = this.getUserInfoFromStorage()
+    if (userInfo != '') { // 若缓存中有用户信息
+      console.log('使用缓存')
+      app.globalData = userInfo
+      this.setData({
+        name: userInfo.name,
+        team: userInfo.group,
+        captain: userInfo.captain,
+      })
+      this.getDuty()
+      return
+    }
+    // 无用户信息时 数据库获取
     let that = this
     wx.cloud.callFunction({
       name: 'getUserInfo',
     }).then(function (res) {
       let result = res.result
-      if(result.flag){
+      if (result.flag) {
         app.globalData = {
           group: result.data.group,
           name: result.data.name,
@@ -87,5 +75,24 @@ Page({
         })
       }
     })
-  }
+  },
+
+  tocaptain() {
+    wx.navigateTo({
+      url: '/pages/onDutyindex/captain/captain',
+    })
+  },
+  tolook() {
+    wx.navigateTo({
+      url: '/pages/onDutyindex/look/look',
+    })
+  },
+  toInfo() {
+    wx.navigateTo({
+      url: '/pages/info/info',
+    })
+  },
+  getUserInfoFromStorage() {
+    return wx.getStorageSync('user')
+  },
 })

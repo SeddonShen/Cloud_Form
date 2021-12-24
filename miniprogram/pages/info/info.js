@@ -1,7 +1,6 @@
 // pages/info/info.js
 var app = getApp();
 Page({
-
     data: {
         name: '',
         college: 0,
@@ -50,17 +49,19 @@ Page({
         this.getUserInfo()
     },
 
-    toIndex(){
+    toIndex() {
         wx.navigateTo({
-          url: '/pages/onDutyindex/onDutyindex',
+            url: '/pages/onDutyindex/onDutyindex',
         })
     },
 
+    /**
+     * 更新用户信息 更新后会保存到storage
+     */
     updateUserInfo() {
         if (!this.check()) {
             return
-        }
-        else {
+        } else {
             let that = this
             wx.showLoading({
                 title: '更新中',
@@ -74,12 +75,14 @@ Page({
                     stuId: this.data.stuId,
                 },
             }).then(function (res) {
-                console.log(res)
                 wx.showToast({
                     title: '信息上传成功',
                     icon: 'none'
                 })
-                that.getUserInfo()
+                that.setData({
+                    flag: true
+                })
+                that.storeUserInfo(res.result.result)
             }).catch(e => {
                 console.log(e)
                 wx.showToast({
@@ -89,7 +92,32 @@ Page({
             })
         }
     },
+
+    storeUserInfo(userInfo) {
+        console.log('更新缓存')
+        wx.setStorageSync('user', userInfo)
+    },
+    getUserInfoFromStorage() {
+        return wx.getStorageSync('user')
+    },
+    /**
+     * 获取用户信息，若缓存有 则不执行
+     * 获取后，会用保存新数据
+     */
     getUserInfo() {
+        let userInfo = this.getUserInfoFromStorage()
+        if (userInfo != '') {
+            console.log('使用缓存')
+            app.globalData = userInfo
+            this.setData({
+                name: userInfo.name,
+                college: userInfo.college,
+                phone: userInfo.phone,
+                stuId: userInfo.stuId,
+                flag: true
+            })
+            return
+        }
         let that = this
         wx.cloud.callFunction({
                 name: 'getUserInfo',
@@ -97,6 +125,8 @@ Page({
                 let result = res.result
                 if (result.flag) {
                     console.log(result)
+                    result.data['openid'] = result.data['_id']
+                    that.storeUserInfo(result.data)
                     app.globalData = {
                         group: result.data.group,
                         name: result.data.name,
@@ -104,7 +134,7 @@ Page({
                         openid: result.data._id,
                         phone: result.data.phone,
                         stuid: result.data.stuid
-                      }
+                    }
                     that.setData({
                         name: result.data.name,
                         college: result.data.college,
@@ -127,6 +157,9 @@ Page({
             })
     },
 
+    /**
+     * 检查需要输入的字段
+     */
     check() {
         if (this.data.name == '' || this.data.college == 0 || this.data.stuId == '') {
             wx.showToast({
@@ -144,6 +177,11 @@ Page({
             return true
         }
     },
+    /**
+     * 检查手机号码格式
+     * 
+     * @param {*} str 
+     */
     checkMobile(str) {
         var re = /^1\d{10}$/
         if (re.test(str)) {
@@ -153,6 +191,11 @@ Page({
         }
     },
 
+    /**
+     * 学院选择框
+     * 
+     * @param {*} e 
+     */
     bindPickerChange: function (e) {
         this.setData({
             college: e.detail.value
