@@ -12,7 +12,7 @@ Page({
     groupdate:[]
   },
   onLoad: function (options) {
-    this.getUserInfo()
+    // this.getUserInfo()
     // this.setData({
     //   team: app.globalData.group,
     //   name: app.globalData.name,
@@ -60,6 +60,7 @@ Page({
   },
 
   getUserInfo(){
+    console.log(1)
     let that = this
     wx.cloud.callFunction({
       name: 'getUserInfo',
