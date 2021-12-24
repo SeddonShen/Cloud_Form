@@ -2,27 +2,34 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 exports.main = async (event, context) => {
   try {
+
     const result = await cloud.openapi.subscribeMessage.send({
         touser: event.touser,
         page: event.page,
         lang: 'zh_CN',
         data: {
-          thing21: {
-            value: '报班成功'
+          name1: {
+            value: '测试姓名'
           },
-          name15: {
-            value: event.name
+          number11: {
+            // value: event.name
+            value: 2019300656
           },
-          date22: {
-            value: event.time
+          thing2: {
+            // value: event.time
+            value: '活动名称测试'
           },
-          thing11: {
-            value: '岗位以队长发布为准，请按时到达岗位'
+          date4: {
+            value: '2019年10⽉20⽇ 20:00'
+          },
+          thing19:{
+            value:'备注测试信息'
           }
         },
         templateId: '_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro',
         miniprogramState: 'formal'
       })
+
     return result
   } catch (err) {
     return err

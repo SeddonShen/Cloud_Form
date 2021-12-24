@@ -20,9 +20,11 @@ Page({
   delettag(e) {
     console.log(e)
     var member = e.currentTarget.dataset.work + '.member'
+    console.log(e.currentTarget.dataset)
     onDuty.doc(_id).update({
       data: {
-        [member]: _.pull(e.currentTarget.dataset.name)
+        [member]: _.pull(e.currentTarget.dataset.name),
+        count:_.inc(-1)
       }
     }).catch(err => {
       console.log(err)
@@ -31,9 +33,15 @@ Page({
   add_member(e) {
     console.log(e)
     var member = e.currentTarget.dataset.work + '.member'
+    var openid = Math.random().toString(36).substring(2)
+    var nickname = e.detail.value
+    var stuid = '手动添加'
+    var phone = '手动添加'
     onDuty.doc(_id).update({
       data: {
-        [member]: _.addToSet(e.detail.value)
+        count:_.inc(1),
+        // [member]: _.addToSet(add_userinfo)
+        [member]: _.push({openid,nickname,stuid,phone})
       }
     }).catch(err => {
       console.log(err)
@@ -86,7 +94,8 @@ Page({
       cancelText: '我再想想',
       confirmColor: '#a5673f',
       complete: res0 => {
-
+        console.log('完成1')
+        console.log(res0.confirm)
         if (res0.confirm) {
           onDuty.doc(_id).update({
             data: {
@@ -95,9 +104,11 @@ Page({
           }).catch(err => {
             console.log(err)
           })
+          console.log('调用到这里了1231232')
           onDuty.doc(_id).get().then(ssd => {
             console.log(ssd);
             ssd.data.openid.forEach(element => {
+              console.log('调用到这里了')
               this.sendone(element)
             });
           })
@@ -120,7 +131,7 @@ Page({
         _id: _id
       },
       success(res) {
-
+        console.log(res)
         wx.hideLoading()
         wx.showModal({
           content: '请选择保存方式',

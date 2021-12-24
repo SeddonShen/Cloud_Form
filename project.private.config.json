@@ -17,6 +17,42 @@
           "pathName": "pages/onDutyindex/onDutyindex",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/look/detail/detail",
+          "pathName": "pages/onDutyindex/look/detail/detail",
+          "query": "_id=54ad1eea61c49a740013b6f5077628a4",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/look/detail/detail",
+          "pathName": "pages/onDutyindex/look/detail/detail",
+          "query": "_id=17e3426e61c4a13b001499fc776fe3d3",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/signup/signup",
+          "pathName": "pages/onDutyindex/signup/signup",
+          "query": "_id=17e3426e61c4a13b001499fc776fe3d3",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/look/detail/detail",
+          "pathName": "pages/onDutyindex/look/detail/detail",
+          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/signup/signup",
+          "pathName": "pages/onDutyindex/signup/signup",
+          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+          "scene": null
+        },
+        {
+          "name": "pages/onDutyindex/signup/signup",
+          "pathName": "pages/onDutyindex/signup/signup",
+          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+          "scene": null
         }
       ]
     }

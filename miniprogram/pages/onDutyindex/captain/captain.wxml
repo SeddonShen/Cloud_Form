@@ -23,12 +23,12 @@
 				<picker name="information_desk" bindchange="information_deskChange" value="{{information_desk}}" range="{{number}}">
 					<view class="picker">
 						<view class="group">
-							<view class="title">人员疏导</view>
+							<view class="title">人数</view>
 							{{information_desk}}人
 						</view>
 					</view>
 				</picker>
-				<picker name="expostor_desk" bindchange="expostor_deskChange" value="{{expostor_desk}}" range="{{number}}">
+				<!-- <picker name="expostor_desk" bindchange="expostor_deskChange" value="{{expostor_desk}}" range="{{number}}">
 					<view class="picker">
 						<view class="group">
 							<view class="title">一码通扫描</view>
@@ -64,11 +64,10 @@
 					<view class="picker">
 						<view class="group">
 							<view class="title">机动志愿者</view>
-							<!-- {{index?picker[index]:'2人'}} -->
 							{{expostor}}人
 						</view>
 					</view>
-				</picker>
+				</picker> -->
 				<button wx:if="{{!submit}}" class="cu-btn line-brown lg" form-type="submit" style="width:100%;">发布</button>
 				<button wx:if="{{submit}}" open-type="share" class="cu-btn line-brown lg" style="width:100%;">分享给朋友</button>
 			</form>
