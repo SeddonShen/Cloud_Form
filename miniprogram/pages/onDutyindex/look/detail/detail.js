@@ -57,17 +57,18 @@ Page({
     })
   },
   sendone(openid) {
-    var timegang=this.data.onduty.date,
-    timegang = timegang.replace(/(-)/, '年');
-    timegang = timegang.replace(/(-)/, '月');
-    timegang = timegang + '日'
+    // var timegang=this.data.onduty.date,
+    // timegang = timegang.replace(/(-)/, '年');
+    // timegang = timegang.replace(/(-)/, '月');
+    // timegang = timegang + '日'
     wx.cloud.callFunction({
       name: "send",
       data: {
         touser: openid,
         page:"pages/onDutyindex/look/detail/detail?_id="+_id,
-        name: app.globalData.name,
-        time:timegang
+        name1: app.globalData.name,
+        number:app.globalData.stuid,
+        time:this.data.onduty.date,
       },
       success(res) {
         console.log("成功", res);

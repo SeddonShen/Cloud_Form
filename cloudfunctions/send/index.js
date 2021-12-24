@@ -9,21 +9,21 @@ exports.main = async (event, context) => {
         lang: 'zh_CN',
         data: {
           name1: {
-            value: '测试姓名'
+            value: event.name1
           },
           number11: {
             // value: event.name
-            value: 2019300656
+            value: event.number
           },
           thing2: {
             // value: event.time
-            value: '活动名称测试'
+            value: '疫情防控志愿者'
           },
           date4: {
-            value: '2019年10⽉20⽇ 20:00'
+            value: event.time
           },
           thing19:{
-            value:'备注测试信息'
+            value:'请及时查看QQ群消息加入群聊'
           }
         },
         templateId: '_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro',
