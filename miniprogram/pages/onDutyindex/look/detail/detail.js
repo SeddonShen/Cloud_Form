@@ -56,7 +56,7 @@ Page({
       ['degs[' + event.currentTarget.dataset.id + ']']: deg
     })
   },
-  sendone(openid) {
+  sendone(nickname,openid,stuid) {
     // var timegang=this.data.onduty.date,
     // timegang = timegang.replace(/(-)/, '年');
     // timegang = timegang.replace(/(-)/, '月');
@@ -66,8 +66,8 @@ Page({
       data: {
         touser: openid,
         page:"pages/onDutyindex/look/detail/detail?_id="+_id,
-        name1: app.globalData.name,
-        number:app.globalData.stuid,
+        name1: nickname,
+        number:stuid,
         time:this.data.onduty.date,
       },
       success(res) {
@@ -108,11 +108,15 @@ Page({
           })
           console.log('调用到这里了1231232')
           onDuty.doc(_id).get().then(ssd => {
-            console.log(ssd);
-            ssd.data.openid.forEach(element => {
-              console.log('调用到这里了')
-              this.sendone(element)
-            });
+            console.log(ssd.data.information_desk.member);
+            ssd.data.information_desk.member.forEach(element =>{
+              console.log(element.nickname,element.openid)
+              this.sendone(element.nickname,element.openid,element.stuid)
+            })
+            // ssd.data.openid.forEach(element => {
+            //   console.log('调用到这里了')
+            //   this.sendone(element)
+            // });
           })
 
         } else if (res0.cancel) {}

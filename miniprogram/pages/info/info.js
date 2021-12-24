@@ -83,6 +83,18 @@ Page({
                     flag: true
                 })
                 that.storeUserInfo(res.result.result)
+                wx.redirectTo({
+                  url: '/pages/onDutyindex/onDutyindex',
+                  success: (res) => {
+                      console.log('跳转成功')
+                  },
+                  fail: (res) => {
+                    console.log('跳转成功1')
+                  },
+                  complete: (res) => {
+                    console.log('跳转成功2')
+                  },
+                })
             }).catch(e => {
                 console.log(e)
                 wx.showToast({
