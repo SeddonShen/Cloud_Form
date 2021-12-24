@@ -24,13 +24,13 @@ App({
     //     that.globalData.openid = res.result.openid
     //   },
     // })
-    this.globalData = {
-      group: '疫情防控志愿服务',
-      name: '学生',
-      captain: false,
-      openid: 'oO4NG5WCH4deh3jpmgAQnrhjCK-Q',
-      phone: '01234567890',
-      stuid: '2019300000'
-    };
+    // this.globalData = {
+    //   group: '疫情防控志愿服务',
+    //   name: '学生',
+    //   captain: false,
+    //   openid: 'oO4NG5WCH4deh3jpmgAQnrhjCK-Q',
+    //   phone: '01234567890',
+    //   stuid: '2019300000'
+    // };
   }
 });
