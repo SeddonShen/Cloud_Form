@@ -11,10 +11,10 @@ exports.main = async (event, context) => {
           name1: {
             value: event.name1
           },
-          number11: {
-            // value: event.name
-            value: event.number
-          },
+          // number11: {
+          //   // value: event.name
+          //   value: event.number
+          // },
           thing2: {
             // value: event.time
             value: '疫情防控志愿者'
@@ -22,11 +22,16 @@ exports.main = async (event, context) => {
           date4: {
             value: event.time
           },
+          // dl
+          thing5: {
+            value: event.place
+          },
           thing19:{
             value:'请及时查看QQ群消息加入群聊'
           }
         },
-        templateId: '_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro',
+        // templateId: '_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro',
+        templateId: '_Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c',
         miniprogramState: 'formal'
       })
 

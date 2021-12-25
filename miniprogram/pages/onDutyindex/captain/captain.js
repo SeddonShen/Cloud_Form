@@ -19,6 +19,8 @@ Page({
     time_end:'12:00',
     imgList: [],
     datesend:'',
+
+    place: '', // dl待输入的地点
     // expostor: 2,
     // hall_desk: 2,
     // teenager_learn: 2,
@@ -52,6 +54,9 @@ Page({
     duty.date = setDuty.date
     duty.datesend = this.data.datesend
     duty.team = app.globalData.group
+
+    duty.place = this.data.place // dl
+    
     duty.time_begin = this.data.time_begin
     duty.time_end = this.data.time_end
     duty.submit_time = util.formatTime(new Date())

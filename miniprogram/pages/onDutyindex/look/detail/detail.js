@@ -62,14 +62,17 @@ Page({
     // timegang = timegang.replace(/(-)/, '月');
     // timegang = timegang + '日'
     // pages/onDutyindex/look/show/show
+    let detailTime = this.data.onduty.date + ' ' + this.data.onduty.time_begin
+    let place = this.data.onduty.place
     wx.cloud.callFunction({
       name: "send",
       data: {
         touser: openid,
         page:"pages/onDutyindex/look/show/show?_id="+_id,
         name1: nickname,
-        number:stuid,
-        time:this.data.onduty.date,
+        // number:stuid,
+        time: detailTime,
+        place: place
       },
       success(res) {
         console.log("成功", res);

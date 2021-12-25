@@ -62,7 +62,8 @@ Page({
           captain: result.data.captain,
           openid: result.data._id,
           phone: result.data.phone,
-          stuid: result.data.stuid
+          stuid: result.data.stuid,
+          sfid: result.data.sfid
         }
         console.log(app.globalData.stuid)
         that.setData({

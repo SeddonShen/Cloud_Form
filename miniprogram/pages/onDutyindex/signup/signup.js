@@ -46,6 +46,7 @@ Page({
     var nickname = app.globalData.name
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
+    var college = app.globalData.college // dl
     var that = this
     var submit_time = new Date()
     console.log('到这里')
@@ -55,7 +56,7 @@ Page({
     }).update({
       data: {
         count: _.inc(1),
-        [member]: _.push({openid,nickname,stuid,phone,submit_time}),
+        [member]: _.push({openid,nickname,stuid,phone,college,submit_time}),
         openid: _.addToSet(app.globalData.openid)
       }
     }).then(function(d){
@@ -165,10 +166,11 @@ Page({
       return
     }
     wx.requestSubscribeMessage({
-      tmplIds: ['_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro'],
+      // tmplIds: ['_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro'],
+      tmplIds: ['_Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c'],
       success: res => {
         // console.log()
-        var temp_flag = res._Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro
+        var temp_flag = res._Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c
         if(temp_flag == 'accept'){
           console.log('订阅成功')
           console.log('开始调用')

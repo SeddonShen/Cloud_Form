@@ -25,6 +25,9 @@
             <view class="input-item">
                 <input model:value="{{stuid}}" placeholder="请输入学号" type="number" />
             </view>
+            <view class="input-item">
+                <input model:value="{{sfid}}" placeholder="请输入身份证号" type="number" />
+            </view>
         </view>
         <view class="padding flex flex-direction">
             <button bindtap="updateUserInfo" class="cu-btn line-brown lg">更新信息</button>

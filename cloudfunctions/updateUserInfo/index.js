@@ -33,7 +33,8 @@ exports.main = async (event, context) => {
         college: event.college,
         phone: event.phone,
         stuid: event.stuid,
-        openid: openid
+        openid: openid,
+        sfid: event.sfid
     }
     // 插入或更新
     return await userTable.doc(openid).set({
@@ -44,6 +45,7 @@ exports.main = async (event, context) => {
             college: event.college,
             phone: event.phone,
             stuid: event.stuid,
+            sfid: event.sfid
         },
     }).then(function (res) {
         return {res,result}
