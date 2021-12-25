@@ -20,8 +20,8 @@ Page({
       datesend: true,
       // interval: true,
       _id: true,
-      time_begin:true,
-      time_end:true
+      time_begin: true,
+      time_end: true
     }).get().then(res => {
       wx.stopPullDownRefresh();
       console.log(res)
@@ -30,7 +30,7 @@ Page({
       })
     })
   },
-  
+
   /**
    * 获取志愿服务列表
    */
@@ -42,8 +42,8 @@ Page({
       datesend: true,
       // interval: true,
       _id: true,
-      time_begin:true,
-      time_end:true
+      time_begin: true,
+      time_end: true
     }).get().then(res => {
       console.log(res)
       this.setData({
@@ -75,16 +75,19 @@ Page({
     }).then(function (res) {
       let result = res.result
       if (result.flag) {
-        app.globalData = {
-          group: result.data.group,
-          name: result.data.name,
-          captain: result.data.captain,
-          openid: result.data._id,
-          phone: result.data.phone,
-          stuid: result.data.stuid,
-          sfid: result.data.sfid
-        }
-        console.log(app.globalData.stuid)
+        result.data['openid'] = result.data['_id']
+        that.storeUserInfo(result.data)
+        app.globalData = result.data
+        // app.globalData = {
+        //   group: result.data.group,
+        //   name: result.data.name,
+        //   captain: result.data.captain,
+        //   openid: result.data._id,
+        //   phone: result.data.phone,
+        //   stuid: result.data.stuid,
+        //   sfid: result.data.sfid
+        // }
+        console.log(app.globalData)
         that.setData({
           team: app.globalData.group,
           name: app.globalData.name,
@@ -116,5 +119,9 @@ Page({
   },
   getUserInfoFromStorage() {
     return wx.getStorageSync('user')
+  },
+  storeUserInfo(userInfo) {
+    console.log('更新缓存')
+    wx.setStorageSync('user', userInfo)
   },
 })

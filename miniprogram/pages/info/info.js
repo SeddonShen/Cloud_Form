@@ -142,15 +142,7 @@ Page({
                     console.log(result)
                     result.data['openid'] = result.data['_id']
                     that.storeUserInfo(result.data)
-                    app.globalData = {
-                        group: result.data.group,
-                        name: result.data.name,
-                        captain: result.data.captain,
-                        openid: result.data._id,
-                        phone: result.data.phone,
-                        stuid: result.data.stuid,
-                        sfid: result.data.sfid
-                    }
+                    app.globalData = result.data
                     that.setData({
                         name: result.data.name,
                         college: result.data.college,
