@@ -255,6 +255,11 @@ Page({
           onduty: onduty
         })
         that.test_hasWork(onduty)
+        wx.hideLoading({
+          success: (res) => {
+            console.log('加载成功')
+          },
+        })
       },
       onError: function (err) {
         console.error('the watch closed because of error', err)
@@ -272,11 +277,7 @@ Page({
     //   title: '校验身份信息',
     //   mask:true,
     // })
-    wx.hideLoading({
-      success: (res) => {
-        console.log('加载成功')
-      },
-    })
+ 
   },
 
   test_hasWork(onduty) {

@@ -26,7 +26,7 @@
 
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#AB0313;">已报名</text>
+		<text class="text-bold" style="color:#AB0313;">报名人数</text>
 		<!-- <view class="text-lg text-grey padding-top padding-bottom"><text>可能与最后结果不一致</text></view> -->
 		<view class="padding text-xxl">
 			{{onduty.count}}/{{onduty.information_desk.limit}}人
