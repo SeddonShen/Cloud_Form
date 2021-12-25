@@ -37,12 +37,13 @@ Page({
     var nickname = e.detail.value
     var stuid = '手动添加'
     var phone = '手动添加'
+    var sfid = '手动添加'
     var submit_time = new Date()
     onDuty.doc(_id).update({
       data: {
         count:_.inc(1),
         // [member]: _.addToSet(add_userinfo)
-        [member]: _.push({openid,nickname,stuid,phone,submit_time})
+        [member]: _.push({openid,nickname,stuid,phone,sfid,submit_time})
       }
     }).catch(err => {
       console.log(err)

@@ -47,6 +47,7 @@ Page({
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
     var college = app.globalData.college // dl
+    var sfid = app.globalData.sfid //ssd 
     var that = this
     var submit_time = new Date()
     console.log('到这里')
@@ -56,7 +57,7 @@ Page({
     }).update({
       data: {
         count: _.inc(1),
-        [member]: _.push({openid,nickname,stuid,phone,college,submit_time}),
+        [member]: _.push({openid,nickname,stuid,phone,college,sfid,submit_time}),
         openid: _.addToSet(app.globalData.openid)
       }
     }).then(function(d){

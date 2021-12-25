@@ -29,8 +29,9 @@
 		<view class="padding">
 			<text>{{onduty.notice}}</text>
 		</view>
-		<view>
-		<image src="{{onduty.imgList}}" bindtap="showImg"></image>
+		<view wx:if="{{onduty.imgList}}">
+		<text  class="text-bold" style="color:#AB0313;">图片点击可放大</text>
+		<image src="{{onduty.imgList}}" bindtap="showImg" class="padding" style="height: 1200rpx;"></image>
 		</view>
 	</view>
 </view>
