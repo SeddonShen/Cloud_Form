@@ -18,7 +18,7 @@ Page({
     time_begin: '08:00',
     time_end:'12:00',
     imgList: [],
-    datesend:'',
+    // datesend:'',
 
     place: '', // dl待输入的地点
     // expostor: 2,
@@ -52,7 +52,18 @@ Page({
     // duty.hall_desk = {}
     // duty.interval = setDuty.interval
     duty.date = setDuty.date
-    duty.datesend = this.data.datesend
+    // 处理date默认时无datesend的问题
+    // let realDateSend = this.data.datesend
+    // if(realDateSend==''){
+    //   let datesend = new Date(this.data.date)
+    //   let month = datesend.getMonth() + 1
+    //   realDateSend = datesend.getFullYear()+ '年' + month + '月' + datesend.getDate() + '日'
+    // }
+    // duty.datesend = realDateSend
+    let datesend = new Date(this.data.date)
+    let month = datesend.getMonth() + 1
+    duty.datesend = datesend.getFullYear()+ '年' + month + '月' + datesend.getDate() + '日'
+    
     duty.team = app.globalData.group
 
     duty.place = this.data.place // dl
@@ -119,12 +130,12 @@ Page({
   // },
 
   dateChange(e) {
-    var datesend = new Date(e.detail.value)
-    var month = datesend.getMonth() + 1
-    var datesend_temp = datesend.getFullYear()+ '年' + month + '月' + datesend.getDate() + '日'
+    // var datesend = new Date(e.detail.value)
+    // var month = datesend.getMonth() + 1
+    // var datesend_temp = datesend.getFullYear()+ '年' + month + '月' + datesend.getDate() + '日'
     this.setData({
       date: e.detail.value,
-      datesend:datesend_temp
+      // datesend:datesend_temp
     })
     
     // console.log(datesend.getFullYear(),datesend.getMonth()+1,datesend.getDate())
