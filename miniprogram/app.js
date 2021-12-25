@@ -37,7 +37,7 @@ App({
       console.log('使用缓存')
       this.globalData = userInfo
     } else {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/info/info',
       })
     }

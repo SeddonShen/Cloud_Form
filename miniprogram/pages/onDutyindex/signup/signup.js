@@ -274,6 +274,15 @@ Page({
             console.log('加载成功')
           },
         })
+        if(!onduty.progress){
+          wx.redirectTo({
+            url: '/pages/onDutyindex/onDutyindex',
+          })
+          wx.showToast({
+            title: '报名已结束',
+            icon: 'none'
+          })
+        }
       },
       onError: function (err) {
         console.error('the watch closed because of error', err)
