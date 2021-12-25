@@ -63,6 +63,11 @@ Page({
     }).then(function(d){
       if(d.stats.updated > 0) {/*抢购成功*/
         console.log('成功')
+        wx.hideLoading({
+          success: (res) => {
+            console.log('报名成功hideloading')
+          },
+        })
         wx.showModal({
           content: '报名成功，请关注后续通知',
           confirmColor: '#AB0313',
@@ -76,6 +81,11 @@ Page({
       }
       else {/*抢购失败*/
         console.log('抢失败')
+        wx.hideLoading({
+          success: (res) => {
+            console.log('报名失败hideloading')
+          },
+        })
         wx.showModal({
           content: '报名失败，请刷新重试',
           confirmColor: '#AB0313',
@@ -176,6 +186,10 @@ Page({
           console.log('订阅成功')
           console.log('开始调用')
           console.log(res)
+          wx.showLoading({
+            title: '正在报名',
+            mask:true,
+          })
           this.get_ticket(limit)
         }else{
           console.log('订阅失败')
