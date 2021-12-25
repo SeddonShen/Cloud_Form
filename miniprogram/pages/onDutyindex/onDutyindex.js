@@ -8,8 +8,27 @@ Page({
     captain: false,
     groupdate: []
   },
-  onShow: function () {
+  onLoad: function () {
     this.getUserInfo()
+  },
+  onPullDownRefresh: function () {
+    console.log("下拉刷新")
+    db.collection("onDuty").where({
+      team: app.globalData.group,
+      progress: true,
+    }).orderBy('submit_time', 'desc').field({
+      datesend: true,
+      // interval: true,
+      _id: true,
+      time_begin:true,
+      time_end:true
+    }).get().then(res => {
+      wx.stopPullDownRefresh();
+      console.log(res)
+      this.setData({
+        groupdate: res.data
+      })
+    })
   },
   
   /**

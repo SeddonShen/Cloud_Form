@@ -32,6 +32,11 @@ App({
     //   phone: '01234567890',
     //   stuid: '2019300000'
     // };
+    let userInfo = wx.getStorageSync('user')
+    if (userInfo != '') { // 若缓存中有用户信息
+      console.log('使用缓存')
+      this.globalData = userInfo
+    }
     wx.cloud.database().collection('notice')
       .where({
         flag: true
@@ -40,7 +45,6 @@ App({
         text: true
       })
       .get().then(res => {
-        console.log(res)
         let data = res.data
         if (data.length !== 0) {
           wx.showModal({
