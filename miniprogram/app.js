@@ -36,6 +36,10 @@ App({
     if (userInfo != '') { // 若缓存中有用户信息
       console.log('使用缓存')
       this.globalData = userInfo
+    } else {
+      wx.navigateTo({
+        url: '/pages/info/info',
+      })
     }
     wx.cloud.database().collection('notice')
       .where({
