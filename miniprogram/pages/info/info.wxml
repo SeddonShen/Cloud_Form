@@ -13,20 +13,22 @@
             <view class="input-item">
                 <input model:value="{{name}}" placeholder="请输入姓名" type="text" />
             </view>
-            <view class="input-item">
-                <!-- <input model:value="{{college}}" placeholder="请输入学院" type="text" /> -->
-                <picker bindchange="bindPickerChange" value="{{college}}" range="{{colleges}}">
-                    <view>{{colleges[college]}}</view>
-                </picker>
-            </view>
-            <view class="input-item">
-                <input model:value="{{phone}}" placeholder="请输入手机号码" type="number" />
-            </view>
-            <view class="input-item">
-                <input model:value="{{stuid}}" placeholder="请输入学号" type="number" />
-            </view>
-            <view class="input-item">
-                <input model:value="{{sfid}}" placeholder="请输入身份证号" type="number" />
+            <view wx:if="{{show}}">
+                <view class="input-item">
+                    <!-- <input model:value="{{college}}" placeholder="请输入学院" type="text" /> -->
+                    <picker bindchange="bindPickerChange" value="{{college}}" range="{{colleges}}">
+                        <view>{{colleges[college]}}</view>
+                    </picker>
+                </view>
+                <view class="input-item">
+                    <input model:value="{{phone}}" placeholder="请输入手机号码" type="number" />
+                </view>
+                <view class="input-item">
+                    <input model:value="{{stuid}}" placeholder="请输入学号" type="number" />
+                </view>
+                <view class="input-item">
+                    <input model:value="{{sfid}}" placeholder="请输入身份证号" type="number" />
+                </view>
             </view>
         </view>
         <view class="padding flex flex-direction">
@@ -34,6 +36,6 @@
         </view>
         <view wx:if="{{flag}}" class="padding-xs flex flex-direction">
             <button bindtap="toIndex" class="cu-btn line-brown lg">返回首页</button>
-        </view> 
+        </view>
     </view>
 </view>

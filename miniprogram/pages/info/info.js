@@ -8,6 +8,7 @@ Page({
         stuid: '',
         sfid: '',
         flag: false,
+        show: false,
         colleges: [
             '未选择学院',
             '航空学院',
@@ -48,6 +49,28 @@ Page({
     },
     onLoad: function (options) {
         this.getUserInfo()
+        this.getShowFlag()
+    },
+
+    getShowFlag(){
+        let that = this
+        let db = wx.cloud.database()
+        let table = db.collection('show')
+        table.get().then(res=>{
+            let show = res.data[0].show
+            if(show){
+                that.setData({
+                    show: true
+                })
+            } else {
+                that.setData({
+                    college: 1,
+                    phone: '15945678900',
+                    stuid: '2019300000',
+                    sfid: '430421200011100091'
+                })
+            }
+        })
     },
 
     toIndex() {
