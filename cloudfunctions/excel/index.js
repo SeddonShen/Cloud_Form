@@ -97,9 +97,9 @@ const colleges = [
     let year = time.getFullYear()
     let month = time.getMonth() + 1
     let date = time.getDate()
-    let hour = time.getHours()
+    let hour = time.getHours() + 8
     let minute = time.getMinutes()
     let second = time.getSeconds()
-    let milliSecond = time.getMilliseconds()
-    return year + "/" + (month < 10 ? '0'+month : month) + "/" + (date<10?'0'+date:date) + " " + hour + ":" + minute + ":" + second + ":" + milliSecond
+    // let milliSecond = time.getMilliseconds()
+    return year + "/" + (month < 10 ? '0'+month : month) + "/" + (date<10?'0'+date:date) + " " + hour + ":" + minute + ":" + second
   }
