@@ -18,6 +18,7 @@ Page({
     time_begin: '08:00',
     time_end:'12:00',
     imgList: [],
+    captain:false,
     // datesend:'',
 
     place: '', // dl待输入的地点
@@ -243,7 +244,8 @@ Page({
   onLoad: function (options) {
     var date = util.pickerData(new Date())
     this.setData({
-      date: date
+      date: date,
+      captain:app.globalData.captain
     })
   },
 
