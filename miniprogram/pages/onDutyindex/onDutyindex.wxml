@@ -47,3 +47,12 @@
 		<view wx:else class="padding-xl text-xxl">暂无志愿服务</view>
 	</view>
 </view>
+
+<view style="text-align: center; margin-bottom: 15rpx; color: #888;">
+	<view>
+		共青团西北工业大学委员会
+	</view>
+	<view>
+		NPU-Devhub开发者社区
+	</view>
+</view>
