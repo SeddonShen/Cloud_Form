@@ -20,6 +20,12 @@
 					{{onduty.place}}
 				</view>
 			</view>
+			<view class="cu-form-group" wx:if="{{onduty.dormitory!=0}}">
+				<view class="title">宿舍楼</view>
+				<view style="font-size: 30rpx;">
+					{{dormitories[onduty.dormitory]}}
+				</view>
+			</view>
 		</view>
 	</view>
 </view>

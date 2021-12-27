@@ -17,7 +17,40 @@ Page({
     work: '',
     onduty: {},
     mywork: [0, 0, 0, 0, 0, 0],
-    dlDisabled: false
+    dlDisabled: false,
+    dormitoryLimit: true,
+    dormitories: [
+      '无宿舍楼限定',
+      '海天苑1号楼A座',
+      '海天苑1号楼B座',
+      '海天苑1号楼C座',
+      '海天苑2号楼A座',
+      '海天苑2号楼B座',
+      '海天苑2号楼C座',
+      '海天苑2号楼D座',
+      '海天苑2号楼E座',
+      '海天苑2号楼F座',
+      '海天苑2号楼G座',
+      '海天苑3号楼A座',
+      '海天苑3号楼B座',
+      '星天苑A座',
+      '星天苑B座',
+      '星天苑C座',
+      '星天苑D座',
+      '星天苑E座',
+      '星天苑F座',
+      '星天苑G座',
+      '星天苑H座A',
+      '星天苑H座B',
+      '星天苑H座C',
+      '友谊7号楼',
+      '云天苑A座',
+      '云天苑B座',
+      '云天苑C座',
+      '云天苑D座',
+      '云天苑E座',
+      '云天苑F座',
+    ]
   },
 
   people_count(_id) {
@@ -47,6 +80,7 @@ Page({
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
     var college = app.globalData.college // dl
+    var dormitory = app.globalData.dormitory // dl
     var sfid = app.globalData.sfid // ssd 
     var that = this
     var submit_time = new Date().getTime()
@@ -63,6 +97,7 @@ Page({
           stuid,
           phone,
           college,
+          dormitory,
           sfid,
           submit_time
         }),
@@ -285,6 +320,12 @@ Page({
           onduty: onduty
         })
         that.test_hasWork(onduty)
+        // 判断宿舍楼
+        if(onduty.dormitory==0||onduty.dormitory==app.globalData.dormitory){
+          that.setData({
+            dormitoryLimit: false
+          })
+        }
         wx.hideLoading({
           success: (res) => {
             console.log('加载成功')

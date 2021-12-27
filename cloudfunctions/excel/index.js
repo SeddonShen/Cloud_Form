@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
     //2，定义存储数据的
     let alldata = [];
     // let row = ['岗位', '姓名']; //表属性
-    let row = ['序号', '姓名', '手机号', '学号', '学院','身份证号', '后台提交时间']; //表属性
+    let row = ['序号', '姓名', '手机号', '学号', '学院', '宿舍楼', '身份证号', '后台提交时间']; //表属性
     alldata.push(row);
     let arr0 = [];
     // arr0.push('岗位1');
@@ -26,7 +26,7 @@ exports.main = async (event, context) => {
       var stu_no = parseInt(i) + parseInt(1)
       let detailTime = formatDate(member0[i].submit_time);
       console.log(detailTime)
-      alldata.push([stu_no, member0[i].nickname, member0[i].phone, member0[i].stuid, colleges[member0[i].college],member0[i].sfid,detailTime])
+      alldata.push([stu_no, member0[i].nickname, member0[i].phone, member0[i].stuid, colleges[member0[i].college], dormitories[member0[i].dormitory] ,member0[i].sfid,detailTime])
 
       // arr0.push(member0[i])
       // if (i == member0.length - 1) {
@@ -91,6 +91,39 @@ const colleges = [
     '光电与智能研究院',
     '其他'
   ]
+
+  const dormitories = [
+    '未选择宿舍',
+    '海天苑1号楼A座',
+    '海天苑1号楼B座',
+    '海天苑1号楼C座',
+    '海天苑2号楼A座',
+    '海天苑2号楼B座',
+    '海天苑2号楼C座',
+    '海天苑2号楼D座',
+    '海天苑2号楼E座',
+    '海天苑2号楼F座',
+    '海天苑2号楼G座',
+    '海天苑3号楼A座',
+    '海天苑3号楼B座',
+    '星天苑A座',
+    '星天苑B座',
+    '星天苑C座',
+    '星天苑D座',
+    '星天苑E座',
+    '星天苑F座',
+    '星天苑G座',
+    '星天苑H座A',
+    '星天苑H座B',
+    '星天苑H座C',
+    '友谊7号楼',
+    '云天苑A座',
+    '云天苑B座',
+    '云天苑C座',
+    '云天苑D座',
+    '云天苑E座',
+    '云天苑F座',
+]
 
   function formatDate(temp){
     let time = new Date(temp)

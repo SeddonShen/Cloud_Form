@@ -61,37 +61,23 @@ Page({
             '海天苑2号楼G座',
             '海天苑3号楼A座',
             '海天苑3号楼B座',
-            '星天苑A座右',
-            '星天苑A座左',
-            '星天苑B座右',
-            '星天苑B座左',
-            '星天苑C座右',
-            '星天苑C座左',
-            '星天苑D座右',
-            '星天苑D座左',
-            '星天苑E座右',
-            '星天苑E座左',
-            '星天苑F座右',
-            '星天苑F座左',
-            '星天苑G座右',
-            '星天苑G座左',
+            '星天苑A座',
+            '星天苑B座',
+            '星天苑C座',
+            '星天苑D座',
+            '星天苑E座',
+            '星天苑F座',
+            '星天苑G座',
             '星天苑H座A',
-            '星天苑H座B右',
-            '星天苑H座B左',
-            '星天苑H座BC',
+            '星天苑H座B',
+            '星天苑H座C',
             '友谊7号楼',
-            '云天苑A座右',
-            '云天苑A座左',
-            '云天苑B座右',
-            '云天苑B座左',
-            '云天苑C座右',
-            '云天苑C座左',
-            '云天苑D座右',
-            '云天苑D座左',
-            '云天苑E座右',
-            '云天苑E座左',
-            '云天苑F座右',
-            '云天苑F座左',
+            '云天苑A座',
+            '云天苑B座',
+            '云天苑C座',
+            '云天苑D座',
+            '云天苑E座',
+            '云天苑F座',
         ]
     },
     onLoad: function (options) {
@@ -211,6 +197,12 @@ Page({
             }).then(function (res) {
                 let result = res.result
                 if (result.flag) {
+                    if(result.data.dormitory == undefined){
+                        wx.showToast({
+                          title: '请完善宿舍信息',
+                          icon: 'none'
+                        })
+                      }
                     console.log(result)
                     result.data['openid'] = result.data['_id']
                     // that.storeUserInfo(result.data)
@@ -337,7 +329,7 @@ Page({
      * 
      * @param {*} e 
      */
-    bindPickerChange: function (e) {
+    dormitoryChange: function (e) {
         this.setData({
             dormitory: e.detail.value
         })

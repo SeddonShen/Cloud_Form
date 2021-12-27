@@ -51,6 +51,13 @@ App({
       let result = res.result
       wx.hideLoading()
       if (result.flag) {
+        console.log(result.data.dormitory)
+        if(result.data.dormitory == undefined){
+          console.log(1)
+          wx.redirectTo({
+            url: '/pages/info/info'
+          })
+        }
         result.data['openid'] = result.data['_id']
         that.globalData = result.data
       } else {

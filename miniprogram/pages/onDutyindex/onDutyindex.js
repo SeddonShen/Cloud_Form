@@ -35,9 +35,11 @@ Page({
    * 获取志愿服务列表
    */
   getDuty() {
+    const _ = db.command
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
+      dormitory: _.eq(0).or(_.eq(app.globalData.dormitory))
     }).orderBy('submit_time', 'desc').field({
       datesend: true,
       // interval: true,
@@ -75,6 +77,11 @@ Page({
     }).then(function (res) {
       let result = res.result
       if (result.flag) {
+        if(result.data.dormitory == undefined){
+          wx.redirectTo({
+            url: '/pages/info/info'
+          })
+        }
         result.data['openid'] = result.data['_id']
         // that.storeUserInfo(result.data)
         app.globalData = result.data
@@ -117,11 +124,11 @@ Page({
       url: '/pages/info/info',
     })
   },
-  getUserInfoFromStorage() {
-    return wx.getStorageSync('user')
-  },
-  storeUserInfo(userInfo) {
-    console.log('更新缓存')
-    wx.setStorageSync('user', userInfo)
-  },
+  // getUserInfoFromStorage() {
+  //   return wx.getStorageSync('user')
+  // },
+  // storeUserInfo(userInfo) {
+  //   console.log('更新缓存')
+  //   wx.setStorageSync('user', userInfo)
+  // },
 })
