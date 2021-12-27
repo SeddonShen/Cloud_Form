@@ -69,8 +69,6 @@
 						</view>
 					</view>
 				</view>
-
-
 				<view class="cu-bar bg-white margin-top">
 					<view class="action">
 						图片上传（在推送中显示）
@@ -93,8 +91,6 @@
 						</view>
 					</view>
 				</view>
-
-
 				<view>
 					备注信息
 				</view>

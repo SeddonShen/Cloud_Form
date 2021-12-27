@@ -6,7 +6,6 @@ var app = getApp()
 var id
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -92,10 +91,12 @@ Page({
     duty.notice = this.data.text_input 
     duty.imgList = this.data.imgList
     console.log(duty)
+    let that = this
     onDuty.add({
       data: duty
     }).then(res => {
       console.log(res)
+      wx.setStorageSync('historyPlace', that.data.place)
       wx.showToast({
         title: '发布成功',
         mask: 'true',
@@ -243,9 +244,12 @@ Page({
    */
   onLoad: function (options) {
     var date = util.pickerData(new Date())
+    let place = wx.getStorageSync('historyPlace')
+    console.log(place)
     this.setData({
       date: date,
-      captain:app.globalData.captain
+      captain:app.globalData.captain,
+      place: place
     })
   },
 

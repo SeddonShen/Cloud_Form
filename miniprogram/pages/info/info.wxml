@@ -27,7 +27,7 @@
                     <input model:value="{{stuid}}" placeholder="请输入学号" type="number" />
                 </view>
                 <view class="input-item">
-                    <input model:value="{{sfid}}" placeholder="请输入身份证号" type="idcard" />
+                    <input model:value="{{sfid}}" placeholder="身份证号/护照号" type="text" />
                 </view>
             </view>
         </view>

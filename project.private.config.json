@@ -1,96 +1,96 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/onDutyindex/onDutyindex",
-          "pathName": "pages/onDutyindex/onDutyindex",
-          "query": "_id=5b049cc861c7148d0070e3a37607faba",
-          "scene": null
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/onDutyindex/look/detail/detail",
-          "pathName": "pages/onDutyindex/look/detail/detail",
-          "query": "_id=54ad1eea61c49a740013b6f5077628a4",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/onDutyindex/look/detail/detail",
-          "pathName": "pages/onDutyindex/look/detail/detail",
-          "query": "_id=17e3426e61c4a13b001499fc776fe3d3",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/onDutyindex/signup/signup",
-          "pathName": "pages/onDutyindex/signup/signup",
-          "query": "_id=17e3426e61c4a13b001499fc776fe3d3",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/look/detail/detail",
-          "pathName": "pages/onDutyindex/look/detail/detail",
-          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/signup/signup",
-          "pathName": "pages/onDutyindex/signup/signup",
-          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/signup/signup",
-          "pathName": "pages/onDutyindex/signup/signup",
-          "query": "_id=54ad1eea61c52bd700275bb8279231c3",
-          "scene": null
-        },
-        {
-          "name": "信息",
-          "pathName": "pages/info/info",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/info/info",
-          "pathName": "pages/info/info",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/look/detail/detail",
-          "pathName": "pages/onDutyindex/look/detail/detail",
-          "query": "_id=5b049cc861c5c8700044ebd45d94b7c0",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/captain/captain",
-          "pathName": "pages/onDutyindex/captain/captain",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/look/show/show",
-          "pathName": "pages/onDutyindex/look/show/show",
-          "query": "_id=54ad1eea61c68c27007071d53c7f0eab",
-          "scene": null
-        },
-        {
-          "name": "pages/onDutyindex/look/show/show",
-          "pathName": "pages/onDutyindex/look/show/show",
-          "query": "_id=5b049cc861c7148d0070e3a37607faba",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/onDutyindex/onDutyindex",
+                    "pathName": "pages/onDutyindex/onDutyindex",
+                    "query": "_id=5b049cc861c7148d0070e3a37607faba",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/detail/detail",
+                    "pathName": "pages/onDutyindex/look/detail/detail",
+                    "query": "_id=54ad1eea61c49a740013b6f5077628a4",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/detail/detail",
+                    "pathName": "pages/onDutyindex/look/detail/detail",
+                    "query": "_id=17e3426e61c4a13b001499fc776fe3d3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/signup/signup",
+                    "pathName": "pages/onDutyindex/signup/signup",
+                    "query": "_id=bf4a0bf261c9862000d232eb3ca13589",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/detail/detail",
+                    "pathName": "pages/onDutyindex/look/detail/detail",
+                    "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/signup/signup",
+                    "pathName": "pages/onDutyindex/signup/signup",
+                    "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/signup/signup",
+                    "pathName": "pages/onDutyindex/signup/signup",
+                    "query": "_id=54ad1eea61c52bd700275bb8279231c3",
+                    "scene": null
+                },
+                {
+                    "name": "信息",
+                    "pathName": "pages/info/info",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/info/info",
+                    "pathName": "pages/info/info",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/detail/detail",
+                    "pathName": "pages/onDutyindex/look/detail/detail",
+                    "query": "_id=5b049cc861c5c8700044ebd45d94b7c0",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/captain/captain",
+                    "pathName": "pages/onDutyindex/captain/captain",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/show/show",
+                    "pathName": "pages/onDutyindex/look/show/show",
+                    "query": "_id=54ad1eea61c68c27007071d53c7f0eab",
+                    "scene": null
+                },
+                {
+                    "name": "pages/onDutyindex/look/show/show",
+                    "pathName": "pages/onDutyindex/look/show/show",
+                    "query": "_id=5b049cc861c7148d0070e3a37607faba",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

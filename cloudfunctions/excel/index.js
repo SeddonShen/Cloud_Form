@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
     let userdata = data.data
 
     //1,定义excel表格名
-    let dataCVS = 'test.xlsx'
+    let dataCVS = new Date().getTime() + '.xlsx'
     //2，定义存储数据的
     let alldata = [];
     // let row = ['岗位', '姓名']; //表属性
@@ -97,9 +97,9 @@ const colleges = [
     let year = time.getFullYear()
     let month = time.getMonth() + 1
     let date = time.getDate()
-    let hour = time.getHours() + 8
+    let hour = time.getHours()
     let minute = time.getMinutes()
     let second = time.getSeconds()
-    // let milliSecond = time.getMilliseconds()
-    return year + "/" + (month < 10 ? '0'+month : month) + "/" + (date<10?'0'+date:date) + " " + hour + ":" + minute + ":" + second
+    let milliSecond = time.getMilliseconds()
+    return year + "/" + (month < 10 ? '0'+month : month) + "/" + (date<10?'0'+date:date) + " " + hour + ":" + minute + ":" + second + ":" + milliSecond
   }
