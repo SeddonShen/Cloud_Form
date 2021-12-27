@@ -37,5 +37,13 @@
         <view wx:if="{{flag}}" class="padding-xs flex flex-direction">
             <button bindtap="toIndex" class="cu-btn line-brown lg">返回首页</button>
         </view>
+        <view class='margin-top-sm padding'>
+                <view class="text-sm">
+                    <navigator url="./fuwu" hover-class="none">
+                        使用本小程序就代表您同意了我们的
+                        <view class="padding"><text class="text-blue  text-sm">《隐私协议》</text></view>
+                    </navigator>
+                </view>
+            </view>
     </view>
 </view>
