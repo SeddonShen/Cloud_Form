@@ -43,76 +43,6 @@
 					</view>
 				</view>
 			</view>
-			<!-- <view class="cu-list menu card-menu">
-				<view class='cu-item content title2' data-id="4" catchtap='rotateAnim'>
-					<text class="text-888  text-lg text-left">一码通扫描({{onduty.expostor_desk.member.length}}/{{onduty.expostor_desk.limit}}人)</text>
-					<view style='transform:rotate({{degs[4]}}deg);transition:all 0.4s;'></view>
-				</view>
-				<view class='text-black  text-lg text-left' style="padding: 25rpx;" hidden='{{degs[4]==0}}'>
-					<view>
-						<view wx:key="index" wx:for="{{onduty.expostor_desk.member}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;">{{item}}<text  wx:if="{{captain}}" data-name="{{item}}" data-work="expostor_desk" bindtap="delettag" class="cuIcon-close" style="margin-left: 10rpx;"></text></view>
-						<view wx:if="{{captain}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;" data-target="viewModal">
-							<input style="width:50px" value="{{value}}" data-work="expostor_desk" confirm-type="done" bindconfirm="add_member" placeholder="添加"></input>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="cu-list menu card-menu">
-				<view class='cu-item content title2' data-id="3" catchtap='rotateAnim'>
-					<text class="text-888  text-lg text-left">网络维护({{onduty.expose_robot.member.length}}/{{onduty.expose_robot.limit}}人)</text>
-					<view style='transform:rotate({{degs[3]}}deg);transition:all 0.4s;'></view>
-				</view>
-				<view class='text-black  text-lg text-left' style="padding: 25rpx;" hidden='{{degs[3]==0}}'>
-					<view>
-						<view wx:key="index" wx:for="{{onduty.expose_robot.member}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;">{{item}}<text  wx:if="{{captain}}" data-name="{{item}}" data-work="expose_robot" bindtap="delettag" class="cuIcon-close" style="margin-left: 10rpx;"></text></view>
-						<view wx:if="{{captain}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;" data-target="viewModal">
-							<input style="width:50px" value="{{value}}" data-work="expose_robot" confirm-type="done" bindconfirm="add_member" placeholder="添加"></input>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="cu-list menu card-menu">
-				<view class='cu-item content title2' data-id="1" catchtap='rotateAnim'>
-					<text class="text-888  text-lg text-left">餐饮保障({{onduty.teenager_learn.member.length}}/{{onduty.teenager_learn.limit}}人)</text>
-					<view style='transform:rotate({{degs[1]}}deg);transition:all 0.4s;'></view>
-				</view>
-				<view class='text-black text-lg text-left' style="padding: 25rpx;" hidden='{{degs[1]==0}}'>
-					<view>
-						<view wx:key="index" wx:for="{{onduty.teenager_learn.member}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;">{{item}}<text  wx:if="{{captain}}" data-name="{{item}}" data-work="teenager_learn" bindtap="delettag" class="cuIcon-close" style="margin-left: 10rpx;"></text></view>
-						<view wx:if="{{captain}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;" data-target="viewModal">
-							<input style="width:50px" value="{{value}}" data-work="teenager_learn" confirm-type="done" bindconfirm="add_member" placeholder="添加"></input>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="cu-list menu card-menu">
-				<view class='cu-item content title2' data-id="2" catchtap='rotateAnim'>
-					<text class="text-888  text-lg text-left">志愿者管理({{onduty.hall_desk.member.length}}/{{onduty.hall_desk.limit}}人)</text>
-					<view style='transform:rotate({{degs[2]}}deg);transition:all 0.4s;'></view>
-				</view>
-				<view class='text-black  text-lg text-left' style="padding: 25rpx;" hidden='{{degs[2]==0}}'>
-					<view>
-						<view wx:key="index" wx:for="{{onduty.hall_desk.member}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;">{{item}}<text  wx:if="{{captain}}" data-name="{{item}}" data-work="hall_desk" bindtap="delettag" class="cuIcon-close" style="margin-left: 10rpx;"></text></view>
-						<view wx:if="{{captain}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;" data-target="viewModal">
-							<input style="width:50px" value="{{value}}" data-work="hall_desk" confirm-type="done" bindconfirm="add_member" placeholder="添加"></input>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="cu-list menu card-menu">
-				<view class='cu-item content title2' data-id="5" catchtap='rotateAnim'>
-					<text class="text-888  text-lg text-left">机动志愿者({{onduty.expostor.member.length}}/{{onduty.expostor.limit}}人)</text>
-					<view style='transform:rotate({{degs[5]}}deg);transition:all 0.4s;'></view>
-				</view>
-				<view class='text-black  text-lg text-left' style="padding: 25rpx;" hidden='{{degs[5]==0}}'>
-					<view>
-						<view wx:key="index" wx:for="{{onduty.expostor.member}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;">{{item}}<text  wx:if="{{captain}}" data-name="{{item}}" data-work="expostor" bindtap="delettag" class="cuIcon-close" style="margin-left: 10rpx;"></text></view>
-						<view wx:if="{{captain}}" class="cu-tag round padding margin-tb" style="margin-left: 10rpx;" data-target="viewModal">
-							<input style="width:50px" value="{{value}}" data-work="expostor" confirm-type="done" bindconfirm="add_member" placeholder="添加"></input>
-						</view>
-					</view>
-				</view>
-			</view> -->
 		</view>
 		<view wx:if="{{captain}}">
 			<view class="padding flex flex-direction">
@@ -121,6 +51,9 @@
 
 			<view wx:if="{{!onduty.progress}}" class="padding flex flex-direction">
 				<button bindtap="reopen" class="cu-btn line-brown lg">恢复进行状态</button>
+			</view>
+			<view wx:if="{{!onduty.progress}}" class="padding flex flex-direction">
+				<button bindtap="send_message" class="cu-btn line-brown lg">发送订阅消息</button>
 			</view>
 			<view wx:if="{{onduty.progress}}" class="padding flex flex-direction">
 				<button bindtap="finish" class="cu-btn line-brown lg">结束报名</button>

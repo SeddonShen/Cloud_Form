@@ -96,8 +96,8 @@ Page({
 
   finish() {
     wx.showModal({
-      content: '结束报名将推送通知给队员（只能一次）',
-      confirmText: '确定通知',
+      content: '结束报名吗',
+      confirmText: '确定结束',
       cancelText: '我再想想',
       confirmColor: '#ab0313',
       complete: res0 => {
@@ -112,24 +112,34 @@ Page({
             console.log(err)
           })
           console.log('调用到这里了1231232')
+        } else if (res0.cancel) {}
+      }
+    })
+
+  },
+  send_message() {
+    wx.showModal({
+      content: '将推送通知给队员（只能一次）',
+      confirmText: '确定通知',
+      cancelText: '我再想想',
+      confirmColor: '#ab0313',
+      complete: res0 => {
+        console.log('完成1')
+        console.log(res0.confirm)
+        if (res0.confirm) {
+          console.log('调用到这里了1231232')
           onDuty.doc(_id).get().then(ssd => {
             console.log(ssd.data.information_desk.member);
             ssd.data.information_desk.member.forEach(element =>{
               console.log(element.nickname,element.openid)
               this.sendone(element.nickname,element.openid,element.stuid)
             })
-            // ssd.data.openid.forEach(element => {
-            //   console.log('调用到这里了')
-            //   this.sendone(element)
-            // });
           })
-
         } else if (res0.cancel) {}
       }
     })
 
   },
-
   excel() {
     var that = this
     wx.showLoading({
