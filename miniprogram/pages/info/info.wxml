@@ -21,6 +21,12 @@
                     </picker>
                 </view>
                 <view class="input-item">
+                    <!-- <input model:value="{{college}}" placeholder="请输入学院" type="text" /> -->
+                    <picker bindchange="bindPickerChange" value="{{dormitory}}" range="{{dormitories}}">
+                        <view>{{dormitories[dormitory]}}</view>
+                    </picker>
+                </view>
+                <view class="input-item">
                     <input model:value="{{phone}}" placeholder="请输入手机号码" type="number" />
                 </view>
                 <view class="input-item">

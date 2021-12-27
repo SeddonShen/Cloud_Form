@@ -4,6 +4,7 @@ Page({
     data: {
         name: '',
         college: 0,
+        dormitory: 0,
         phone: '',
         stuid: '',
         sfid: '',
@@ -45,6 +46,52 @@ Page({
             '医学研究院',
             '光电与智能研究院',
             '其他'
+        ],
+        dormitories: [
+            '未选择宿舍',
+            '海天苑1号楼A座',
+            '海天苑1号楼B座',
+            '海天苑1号楼C座',
+            '海天苑2号楼A座',
+            '海天苑2号楼B座',
+            '海天苑2号楼C座',
+            '海天苑2号楼D座',
+            '海天苑2号楼E座',
+            '海天苑2号楼F座',
+            '海天苑2号楼G座',
+            '海天苑3号楼A座',
+            '海天苑3号楼B座',
+            '星天苑A座右',
+            '星天苑A座左',
+            '星天苑B座右',
+            '星天苑B座左',
+            '星天苑C座右',
+            '星天苑C座左',
+            '星天苑D座右',
+            '星天苑D座左',
+            '星天苑E座右',
+            '星天苑E座左',
+            '星天苑F座右',
+            '星天苑F座左',
+            '星天苑G座右',
+            '星天苑G座左',
+            '星天苑H座A',
+            '星天苑H座B右',
+            '星天苑H座B左',
+            '星天苑H座BC',
+            '友谊7号楼',
+            '云天苑A座右',
+            '云天苑A座左',
+            '云天苑B座右',
+            '云天苑B座左',
+            '云天苑C座右',
+            '云天苑C座左',
+            '云天苑D座右',
+            '云天苑D座左',
+            '云天苑E座右',
+            '云天苑E座左',
+            '云天苑F座右',
+            '云天苑F座左',
         ]
     },
     onLoad: function (options) {
@@ -52,13 +99,13 @@ Page({
         this.getShowFlag()
     },
 
-    getShowFlag(){
+    getShowFlag() {
         let that = this
         let db = wx.cloud.database()
         let table = db.collection('show')
-        table.get().then(res=>{
+        table.get().then(res => {
             let show = res.data[0].show
-            if(show){
+            if (show) {
                 that.setData({
                     show: true
                 })
@@ -95,6 +142,7 @@ Page({
                 data: {
                     name: this.data.name,
                     college: this.data.college,
+                    dormitory: this.data.dormitory,
                     phone: this.data.phone,
                     stuid: this.data.stuid,
                     sfid: this.data.sfid
@@ -107,7 +155,7 @@ Page({
                 that.setData({
                     flag: true
                 })
-                that.storeUserInfo(res.result.result)
+                // that.storeUserInfo(res.result.result)
                 wx.redirectTo({
                     url: '/pages/onDutyindex/onDutyindex',
                     success: (res) => {
@@ -142,20 +190,21 @@ Page({
      * 获取后，会用保存新数据
      */
     getUserInfo() {
-        let userInfo = this.getUserInfoFromStorage()
-        if (userInfo != '') {
-            console.log('使用缓存')
-            app.globalData = userInfo
-            this.setData({
-                name: userInfo.name,
-                college: userInfo.college,
-                phone: userInfo.phone,
-                stuid: userInfo.stuid,
-                sfid: userInfo.sfid,
-                flag: true
-            })
-            return
-        }
+        // let userInfo = this.getUserInfoFromStorage()
+        // if (userInfo != '') {
+        //     console.log('使用缓存')
+        //     app.globalData = userInfo
+        //     this.setData({
+        //         name: userInfo.name,
+        //         dormitory: userInfo.dormitory,
+        //         college: userInfo.college,
+        //         phone: userInfo.phone,
+        //         stuid: userInfo.stuid,
+        //         sfid: userInfo.sfid,
+        //         flag: true
+        //     })
+        //     return
+        // }
         let that = this
         wx.cloud.callFunction({
                 name: 'getUserInfo',
@@ -164,11 +213,12 @@ Page({
                 if (result.flag) {
                     console.log(result)
                     result.data['openid'] = result.data['_id']
-                    that.storeUserInfo(result.data)
+                    // that.storeUserInfo(result.data)
                     app.globalData = result.data
                     that.setData({
                         name: result.data.name,
                         college: result.data.college,
+                        dormitory: result.data.dormitory,
                         phone: result.data.phone,
                         stuid: result.data.stuid,
                         sfid: result.data.sfid,
@@ -193,7 +243,7 @@ Page({
      * 检查需要输入的字段
      */
     check() {
-        if (this.data.name == '' || this.data.college == 0 || this.data.stuid == '') {
+        if (this.data.name == '' || this.data.college == 0 || this.data.dormitory == 0 || this.data.stuid == '') {
             wx.showToast({
                 title: '请完善信息',
                 icon: 'none'
@@ -205,7 +255,7 @@ Page({
                 icon: 'none'
             })
             return false
-        } else if (!this.checkId(this.data.sfid)&&!this.checkPasspoort(this.data.sfid)) {
+        } else if (!this.checkId(this.data.sfid) && !this.checkPasspoort(this.data.sfid)) {
             wx.showToast({
                 title: '身份证/护照格式不正确',
                 icon: 'none'
@@ -221,7 +271,7 @@ Page({
      * 
      * @param {护照号} str 
      */
-    checkPasspoort(str){
+    checkPasspoort(str) {
         let re = /^1[45][0-9]{7}$|([P|p|S|s]\d{7}$)|([S|s|G|g|E|e]\d{8}$)|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8}$)|([H|h|M|m]\d{8,10})$/
         return re.test(str)
     },
@@ -280,6 +330,16 @@ Page({
     bindPickerChange: function (e) {
         this.setData({
             college: e.detail.value
+        })
+    },
+    /**
+     * 宿舍选择框
+     * 
+     * @param {*} e 
+     */
+    bindPickerChange: function (e) {
+        this.setData({
+            dormitory: e.detail.value
         })
     },
 

@@ -32,15 +32,35 @@ App({
     //   phone: '01234567890',
     //   stuid: '2019300000'
     // };
-    let userInfo = wx.getStorageSync('user')
-    if (userInfo != '') { // 若缓存中有用户信息
-      console.log('使用缓存')
-      this.globalData = userInfo
-    } else {
-      wx.redirectTo({
-        url: '/pages/info/info',
-      })
-    }
+    // let userInfo = wx.getStorageSync('user')
+    // if (userInfo != '') { // 若缓存中有用户信息
+    //   console.log('使用缓存')
+    //   this.globalData = userInfo
+    // } else {
+    //   wx.redirectTo({
+    //     url: '/pages/info/info',
+    //   })
+    // }
+    wx.showLoading({
+      title: '加载信息中',
+      mask: 'none'
+    })
+    wx.cloud.callFunction({
+      name: 'getUserInfo',
+    }).then(function (res) {
+      let result = res.result
+      wx.hideLoading()
+      if (result.flag) {
+        result.data['openid'] = result.data['_id']
+        that.globalData = result.data
+      } else {
+        wx.redirectTo({
+          url: '/pages/info/info'
+        })
+      }
+    }).catch(e=>{
+      wx.hideLoading()
+    })
     wx.cloud.database().collection('notice')
       .where({
         flag: true

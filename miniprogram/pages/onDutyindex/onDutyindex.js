@@ -56,18 +56,18 @@ Page({
    * 获取用户信息
    */
   getUserInfo() {
-    let userInfo = this.getUserInfoFromStorage()
-    if (userInfo != '') { // 若缓存中有用户信息
-      console.log('使用缓存')
-      app.globalData = userInfo
-      this.setData({
-        name: userInfo.name,
-        team: userInfo.group,
-        captain: userInfo.captain,
-      })
-      this.getDuty()
-      return
-    }
+    // let userInfo = this.getUserInfoFromStorage()
+    // if (userInfo != '') { // 若缓存中有用户信息
+    //   console.log('使用缓存')
+    //   app.globalData = userInfo
+    //   this.setData({
+    //     name: userInfo.name,
+    //     team: userInfo.group,
+    //     captain: userInfo.captain,
+    //   })
+    //   this.getDuty()
+    //   return
+    // }
     // 无用户信息时 数据库获取
     let that = this
     wx.cloud.callFunction({
@@ -76,7 +76,7 @@ Page({
       let result = res.result
       if (result.flag) {
         result.data['openid'] = result.data['_id']
-        that.storeUserInfo(result.data)
+        // that.storeUserInfo(result.data)
         app.globalData = result.data
         // app.globalData = {
         //   group: result.data.group,
@@ -95,9 +95,9 @@ Page({
         })
         that.getDuty()
       } else {
-        wx.redirectTo({
-          url: '/pages/info/info'
-        })
+        // wx.redirectTo({
+        //   url: '/pages/info/info'
+        // })
       }
     })
   },
