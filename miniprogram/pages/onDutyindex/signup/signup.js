@@ -13,21 +13,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    _id:'',
+    _id: '',
     work: '',
     onduty: {},
-    mywork: [0, 0, 0, 0, 0, 0]
+    mywork: [0, 0, 0, 0, 0, 0],
+    dlDisabled: false
   },
 
-  people_count(_id){
+  people_count(_id) {
     db.collection("onDuty").where({
       _id: _id
-    }).orderBy('submit_time','desc').field({
-      count : true,
-      information_desk:true
+    }).orderBy('submit_time', 'desc').field({
+      count: true,
+      information_desk: true
     }).get().then(res => {
-      console.log(res.data[0].count,res.data[0].information_desk.limit)
-      if(res.data[0].count < res.data[0].information_desk.limit){
+      console.log(res.data[0].count, res.data[0].information_desk.limit)
+      if (res.data[0].count < res.data[0].information_desk.limit) {
         console.log("True")
         return true
       }
@@ -39,17 +40,16 @@ Page({
   //   console.log(e)
   //   work = e.detail.value
   // },
-  get_ticket(limit){
+  get_ticket(limit) {
     var member = work + '.member'
-    console.log(member)
     var openid = app.globalData.openid
     var nickname = app.globalData.name
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
     var college = app.globalData.college // dl
-    var sfid = app.globalData.sfid //ssd 
+    var sfid = app.globalData.sfid // ssd 
     var that = this
-    var submit_time = new Date()
+    var submit_time = new Date().getTime()
     console.log('到这里')
     db.collection('onDuty').where({
       _id: _id,
@@ -57,11 +57,20 @@ Page({
     }).update({
       data: {
         count: _.inc(1),
-        [member]: _.push({openid,nickname,stuid,phone,college,sfid,submit_time}),
+        [member]: _.push({
+          openid,
+          nickname,
+          stuid,
+          phone,
+          college,
+          sfid,
+          submit_time
+        }),
         openid: _.addToSet(app.globalData.openid)
       }
-    }).then(function(d){
-      if(d.stats.updated > 0) {/*抢购成功*/
+    }).then(function (d) {
+      if (d.stats.updated > 0) {
+        /*抢购成功*/
         console.log('成功')
         wx.hideLoading({
           success: (res) => {
@@ -78,8 +87,8 @@ Page({
             }
           }
         })
-      }
-      else {/*抢购失败*/
+      } else {
+        /*抢购失败*/
         console.log('抢失败')
         wx.hideLoading({
           success: (res) => {
@@ -96,7 +105,7 @@ Page({
             }
           }
         })
-      // console.log(d)
+        // console.log(d)
       }
     })
 
@@ -121,28 +130,28 @@ Page({
     //         //   work: work
     //         // })
     //         console.log('应该有个弹框')
-            // wx.showModal({
-            //   content: '报名成功，请关注后续通知',
-            //   confirmColor: '#ab0313',
-            //   complete: res => {
-            //     console.log(res)
-            //     if (res.confirm) {
-            //       console.log("用户确认")
-            //     }
-            //   }
-            // })
+    // wx.showModal({
+    //   content: '报名成功，请关注后续通知',
+    //   confirmColor: '#ab0313',
+    //   complete: res => {
+    //     console.log(res)
+    //     if (res.confirm) {
+    //       console.log("用户确认")
+    //     }
+    //   }
+    // })
     //       },
     //       fail(res){
-            // wx.showModal({
-            //   content: '报名失败，请刷新重试',
-            //   confirmColor: '#ab0313',
-            //   complete: res => {
-            //     console.log(res)
-            //     if (res.confirm) {
-            //       console.log("用户确认")
-            //     }
-            //   }
-            // })
+    // wx.showModal({
+    //   content: '报名失败，请刷新重试',
+    //   confirmColor: '#ab0313',
+    //   complete: res => {
+    //     console.log(res)
+    //     if (res.confirm) {
+    //       console.log("用户确认")
+    //     }
+    //   }
+    // })
     //       }
     //     })
     //     // return true
@@ -164,36 +173,41 @@ Page({
     // })
   },
   getWork(e) {
+    this.setData({
+      dlDisabled: true
+    })
     console.log(e.currentTarget.dataset)
     var limit = e.currentTarget.dataset.count
     console.log(limit)
-    console.log('OK')
     work = 'information_desk'
-    if (!work) {
-      wx.showToast({
-        title: '请选择',
-        icon: 'none'
-      })
-      return
-    }
+    // if (!work) {
+    //   wx.showToast({
+    //     title: '请选择',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     wx.requestSubscribeMessage({
       // tmplIds: ['_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro'],
       tmplIds: ['_Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c'],
       success: res => {
         // console.log()
         var temp_flag = res._Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c
-        if(temp_flag == 'accept'){
+        if (temp_flag == 'accept') {
           console.log('订阅成功')
           console.log('开始调用')
           console.log(res)
           wx.showLoading({
             title: '正在报名',
-            mask:true,
+            mask: true,
           })
           this.get_ticket(limit)
-        }else{
+        } else {
           console.log('订阅失败')
           // console.log(err)
+          this.setData({
+            dlDisabled: false
+          })
           wx.showModal({
             content: '请允许接收订阅消息',
             confirmColor: '#ab0313',
@@ -208,7 +222,9 @@ Page({
 
       },
       fail: err => {
-
+        this.setData({
+          dlDisabled: false
+        })
       }
     })
 
@@ -224,9 +240,9 @@ Page({
           var member = work + '.member'
           onDuty.doc(_id).update({
             data: {
-              count:_.inc(-1),
+              count: _.inc(-1),
               [member]: _.pull({
-                openid:app.globalData.openid
+                openid: app.globalData.openid
               }),
               openid: _.pull(app.globalData.openid)
             }
@@ -251,13 +267,13 @@ Page({
       if (!app.globalData.name) {
         wx.showLoading({
           title: '校验身份信息',
-          mask:true,
+          mask: true,
         })
       }
     }
     wx.showLoading({
       title: '正在加载',
-      mask:true,
+      mask: true,
     })
     _id = options._id
     var that = this
@@ -274,7 +290,7 @@ Page({
             console.log('加载成功')
           },
         })
-        if(!onduty.progress){
+        if (!onduty.progress) {
           wx.redirectTo({
             url: '/pages/onDutyindex/onDutyindex',
           })
@@ -289,7 +305,7 @@ Page({
       }
     })
     this.setData({
-      _id:_id
+      _id: _id
     })
     // for(var i=0;i<=1000;i++){
     //   console.log('压力测试第' + i + '次')
@@ -300,18 +316,17 @@ Page({
     //   title: '校验身份信息',
     //   mask:true,
     // })
- 
+
   },
 
   test_hasWork(onduty) {
-
     var openid = app.globalData.openid
     var information_desk = onduty.information_desk.member
     var array = [information_desk]
     console.log(array)
     for (var i in array[0]) {
       console.log(array[0][i].openid)
-      if(array[0][i].openid == openid){
+      if (array[0][i].openid == openid) {
         work = 'information_desk'
         this.setData({
           work: work

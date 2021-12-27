@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
     let userdata = data.data
 
     //1,定义excel表格名
-    let dataCVS = 'test.xlsx'
+    let dataCVS = new Date().getTime() + '.xlsx'
     //2，定义存储数据的
     let alldata = [];
     // let row = ['岗位', '姓名']; //表属性

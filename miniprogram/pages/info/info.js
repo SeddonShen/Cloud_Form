@@ -205,15 +205,25 @@ Page({
                 icon: 'none'
             })
             return false
-        } else if (!this.checkId(this.data.sfid)) {
+        } else if (!this.checkId(this.data.sfid)&&!this.checkPasspoort(this.data.sfid)) {
             wx.showToast({
-                title: '身份证格式不正确',
+                title: '身份证/护照格式不正确',
                 icon: 'none'
             })
             return false
         } else {
             return true
         }
+    },
+
+    /**
+     * 检查护照号
+     * 
+     * @param {护照号} str 
+     */
+    checkPasspoort(str){
+        let re = /^1[45][0-9]{7}$|([P|p|S|s]\d{7}$)|([S|s|G|g|E|e]\d{8}$)|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8}$)|([H|h|M|m]\d{8,10})$/
+        return re.test(str)
     },
 
     /**
@@ -259,11 +269,7 @@ Page({
      */
     checkMobile(str) {
         var re = /^1\d{10}$/
-        if (re.test(str)) {
-            return true
-        } else {
-            return false
-        }
+        return re.test(str)
     },
 
     /**
