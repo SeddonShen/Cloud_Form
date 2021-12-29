@@ -101,6 +101,12 @@
           "pathName": "pages/onDutyindex/signup/signup",
           "query": "_id=17e3426e61cbb94b01319899177dfd04",
           "scene": null
+        },
+        {
+          "name": "pages/info/info",
+          "pathName": "pages/info/info",
+          "query": "",
+          "scene": null
         }
       ]
     }

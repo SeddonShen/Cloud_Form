@@ -15,8 +15,8 @@
 .wxavatar {
     overflow: hidden;
     display: block;
-    width: 160rpx;
-    height: 160rpx;
+    width: 230rpx;
+    height: 230rpx;
     margin: 20rpx;
     border-radius: 50%;
     border: 2px solid #fff;
@@ -25,8 +25,12 @@
 
 
 .input-item{
-    border: 1rpx solid var(--brown);
+    border: 1rpx solid #aaaaaa;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 5000px;
     margin-top: 25rpx;
+}
+.duty-color{
+    color:#68C08B;
+    font-weight: 500;
 }
