@@ -1,6 +1,6 @@
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#AB0313;">本次排班时段</text>
+		<text class="text-bold" style="color:#68C08B;">本次排班时段</text>
 		<view>
 			<view class="cu-form-group margin-top">
 				<view class="title">值班日期</view>
@@ -31,7 +31,7 @@
 </view>
 <view class="padding text-center">
 	<view class="padding radius shadow bg-white text-xxl">
-		<text class="text-bold" style="color:#AB0313;">报名详情</text>
+		<text class="text-bold" style="color:#68C08B;">报名详情</text>
 		<view>
 			<view class="cu-list menu card-menu">
 				<view class='cu-item content title2' data-id="0" catchtap='rotateAnim'>

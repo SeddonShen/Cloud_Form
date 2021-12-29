@@ -129,7 +129,7 @@ Page({
         })
         wx.showModal({
           content: '报名成功，请关注后续通知',
-          confirmColor: '#AB0313',
+          confirmColor: '#68C08B',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -147,7 +147,7 @@ Page({
         })
         wx.showModal({
           content: '报名失败，请刷新重试',
-          confirmColor: '#AB0313',
+          confirmColor: '#68C08B',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -182,7 +182,7 @@ Page({
     //         console.log('应该有个弹框')
     // wx.showModal({
     //   content: '报名成功，请关注后续通知',
-    //   confirmColor: '#ab0313',
+    //   confirmColor: '#68C08B',
     //   complete: res => {
     //     console.log(res)
     //     if (res.confirm) {
@@ -194,7 +194,7 @@ Page({
     //       fail(res){
     // wx.showModal({
     //   content: '报名失败，请刷新重试',
-    //   confirmColor: '#ab0313',
+    //   confirmColor: '#68C08B',
     //   complete: res => {
     //     console.log(res)
     //     if (res.confirm) {
@@ -209,7 +209,7 @@ Page({
     //     console.log('满了')
     //     wx.showModal({
     //       content: '人员已满',
-    //       confirmColor: '#ab0313',
+    //       confirmColor: '#68C08B',
     //       complete: res => {
     //         console.log(res)
     //         if (res.confirm) {
@@ -260,7 +260,7 @@ Page({
           })
           wx.showModal({
             content: '请允许接收订阅消息',
-            confirmColor: '#ab0313',
+            confirmColor: '#68C08B',
             complete: res => {
               console.log(res)
               if (res.confirm) {
@@ -283,7 +283,7 @@ Page({
   resetWork() {
     wx.showModal({
       content: '重新选择可能会导致现有岗位被其他志愿者申请哦，是否重新选择',
-      confirmColor: '#ab0313',
+      confirmColor: '#68C08B',
       complete: res => {
         console.log(res)
         if (res.confirm) {
