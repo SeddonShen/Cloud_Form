@@ -21,7 +21,8 @@ Page({
       // interval: true,
       _id: true,
       time_begin: true,
-      time_end: true
+      time_end: true,
+      place:true,
     }).get().then(res => {
       wx.stopPullDownRefresh();
       console.log(res)
@@ -38,12 +39,14 @@ Page({
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
+
     }).orderBy('submit_time', 'desc').field({
       datesend: true,
       // interval: true,
       _id: true,
       time_begin: true,
-      time_end: true
+      time_end: true,
+      place:true
     }).get().then(res => {
       console.log(res)
       this.setData({

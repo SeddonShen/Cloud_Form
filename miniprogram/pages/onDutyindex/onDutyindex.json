@@ -1,6 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "值班安排",
+  "navigationBarTitleText": "志愿服务",
   "enablePullDownRefresh": true,
   "backgroundColor": "#f1f1f1",
   "backgroundTextStyle":"dark"
