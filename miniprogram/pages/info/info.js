@@ -69,15 +69,30 @@ Page({
             '星天苑F座',
             '星天苑G座',
             '星天苑H座A',
+            '星天苑H座A女',
             '星天苑H座B',
             '星天苑H座C',
-            '友谊7号楼',
             '云天苑A座',
             '云天苑B座',
             '云天苑C座',
             '云天苑D座',
             '云天苑E座',
             '云天苑F座',
+            '1号楼A座',
+            '1号楼B座',
+            '1号楼C座',
+            '2号楼',
+            '3号楼A座',
+            '3号楼B座',
+            '3号楼C座',
+            '4号楼',
+            '5号楼',
+            '6号楼',
+            '11舍',
+            '12舍',
+            '北村三号楼',
+            '7号楼',
+            '其他',
         ]
     },
     onLoad: function (options) {
@@ -100,7 +115,8 @@ Page({
                     college: 1,
                     phone: '15945678900',
                     stuid: '2019300000',
-                    sfid: '430421200011100091'
+                    sfid: '430421200011100091',
+                    dormitory: 1
                 })
             }
         })
@@ -197,12 +213,12 @@ Page({
             }).then(function (res) {
                 let result = res.result
                 if (result.flag) {
-                    if(result.data.dormitory == undefined){
+                    if (result.data.dormitory == undefined) {
                         wx.showToast({
-                          title: '请完善宿舍信息',
-                          icon: 'none'
+                            title: '请完善宿舍信息',
+                            icon: 'none'
                         })
-                      }
+                    }
                     console.log(result)
                     result.data['openid'] = result.data['_id']
                     // that.storeUserInfo(result.data)

@@ -1,6 +1,7 @@
 var app = getApp();
 const db = wx.cloud.database()
 const user = db.collection("user")
+const _ = db.command
 Page({
   data: {
     team: "",
@@ -16,6 +17,7 @@ Page({
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
+      dormitory: _.eq(0).or(_.eq(app.globalData.dormitory))
     }).orderBy('submit_time', 'desc').field({
       datesend: true,
       // interval: true,
@@ -35,7 +37,6 @@ Page({
    * 获取志愿服务列表
    */
   getDuty() {
-    const _ = db.command
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
