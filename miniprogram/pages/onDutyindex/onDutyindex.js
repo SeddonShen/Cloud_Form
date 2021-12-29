@@ -23,7 +23,8 @@ Page({
       // interval: true,
       _id: true,
       time_begin: true,
-      time_end: true
+      time_end: true,
+      place:true
     }).get().then(res => {
       wx.stopPullDownRefresh();
       console.log(res)
@@ -46,7 +47,8 @@ Page({
       // interval: true,
       _id: true,
       time_begin: true,
-      time_end: true
+      time_end: true,
+      place:true
     }).get().then(res => {
       console.log(res)
       this.setData({

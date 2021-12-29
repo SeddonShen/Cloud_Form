@@ -62,7 +62,7 @@
 	</navigator>
 </view>
 <!-- <view wx:else class="padding-xl text-xxl">暂无志愿服务</view> -->
-<view class="padding text-center" style="padding: 40rpx;">
+<view class="padding text-center" style="padding: 40rpx;" wx:else>
 	<view class="padding-xl radius shadow bg-white text-xl">
 		<view style="font-weight: 900;font-size: 40rpx;">
 			暂无志愿服务
