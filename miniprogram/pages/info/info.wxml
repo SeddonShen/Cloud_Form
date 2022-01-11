@@ -35,6 +35,11 @@
                 <view class="input-item">
                     <input model:value="{{sfid}}" placeholder="身份证号/护照号" type="text" />
                 </view>
+                <view class="input-item">
+                    <picker bindchange="bindFoodChange" value="{{food}}" range="{{foods}}">
+                        <view>{{foods[food]}}</view>
+                    </picker>
+                </view>
             </view>
         </view>
         <view class="padding flex flex-direction">

@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
     //2，定义存储数据的
     let alldata = [];
     // let row = ['岗位', '姓名']; //表属性
-    let row = ['序号', '姓名', '手机号', '学号', '学院', '宿舍楼', '身份证号', '后台提交时间']; //表属性
+    let row = ['序号', '姓名', '手机号', '学号', '学院', '宿舍楼', '用餐信息', '身份证号', '后台提交时间']; //表属性
     alldata.push(row);
     let arr0 = [];
     // arr0.push('岗位1');
@@ -26,7 +26,15 @@ exports.main = async (event, context) => {
       var stu_no = parseInt(i) + parseInt(1)
       let detailTime = formatDate(member0[i].submit_time);
       console.log(detailTime)
-      alldata.push([stu_no, member0[i].nickname, member0[i].phone, member0[i].stuid, colleges[member0[i].college], dormitories[member0[i].dormitory], member0[i].sfid, detailTime])
+      let food = member0[i].food
+      if(food == 0){
+        food = '普通餐'
+      } else if(food == 1) {
+        food = '清真餐'
+      } else {
+        food = '未填写'
+      }
+      alldata.push([stu_no, member0[i].nickname, member0[i].phone, member0[i].stuid, colleges[member0[i].college], dormitories[member0[i].dormitory], food, member0[i].sfid, detailTime])
 
       // arr0.push(member0[i])
       // if (i == member0.length - 1) {

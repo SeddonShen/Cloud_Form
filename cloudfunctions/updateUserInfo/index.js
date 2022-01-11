@@ -32,6 +32,7 @@ exports.main = async (event, context) => {
         name: event.name,
         college: event.college,
         dormitory: event.dormitory,
+        food: event.food,
         phone: event.phone,
         stuid: event.stuid,
         openid: openid,
@@ -45,6 +46,7 @@ exports.main = async (event, context) => {
             name: event.name,
             college: event.college,
             dormitory: event.dormitory, 
+            food: event.food,
             phone: event.phone,
             stuid: event.stuid,
             sfid: event.sfid

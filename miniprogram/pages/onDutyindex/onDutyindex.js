@@ -17,7 +17,7 @@ Page({
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
-      dormitory: _.eq(0).or(_.eq(app.globalData.dormitory))
+      dormitory: _.eq('0').or(_.eq(app.globalData.dormitory))
     }).orderBy('submit_time', 'desc').field({
       datesend: true,
       // interval: true,
@@ -40,7 +40,7 @@ Page({
     db.collection("onDuty").where({
       team: app.globalData.group,
       progress: true,
-      dormitory: _.eq(0).or(_.eq(app.globalData.dormitory))
+      dormitory: _.eq('0').or(_.eq(app.globalData.dormitory))
     }).orderBy('submit_time', 'desc').field({
       datesend: true,
       // interval: true,

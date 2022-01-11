@@ -52,7 +52,7 @@ App({
       wx.hideLoading()
       if (result.flag) {
         console.log(result.data.dormitory)
-        if(result.data.dormitory == undefined){
+        if(result.data.dormitory == undefined || result.data.food == undefined){
           console.log(1)
           wx.redirectTo({
             url: '/pages/info/info'

@@ -93,7 +93,9 @@ Page({
             '北村三号楼',
             '7号楼',
             '其他',
-        ]
+        ],
+        food: 0,
+        foods: ['普通餐','清真餐']
     },
     onLoad: function (options) {
         this.getUserInfo()
@@ -116,7 +118,8 @@ Page({
                     phone: '15945678900',
                     stuid: '2019300000',
                     sfid: '430421200011100091',
-                    dormitory: 1
+                    dormitory: 1,
+                    food: 0
                 })
             }
         })
@@ -145,6 +148,7 @@ Page({
                     name: this.data.name,
                     college: this.data.college,
                     dormitory: this.data.dormitory,
+                    food: this.data.food,
                     phone: this.data.phone,
                     stuid: this.data.stuid,
                     sfid: this.data.sfid
@@ -192,30 +196,15 @@ Page({
      * 获取后，会用保存新数据
      */
     getUserInfo() {
-        // let userInfo = this.getUserInfoFromStorage()
-        // if (userInfo != '') {
-        //     console.log('使用缓存')
-        //     app.globalData = userInfo
-        //     this.setData({
-        //         name: userInfo.name,
-        //         dormitory: userInfo.dormitory,
-        //         college: userInfo.college,
-        //         phone: userInfo.phone,
-        //         stuid: userInfo.stuid,
-        //         sfid: userInfo.sfid,
-        //         flag: true
-        //     })
-        //     return
-        // }
         let that = this
         wx.cloud.callFunction({
                 name: 'getUserInfo',
             }).then(function (res) {
                 let result = res.result
                 if (result.flag) {
-                    if (result.data.dormitory == undefined) {
+                    if (result.data.food == undefined) {
                         wx.showToast({
-                            title: '请完善宿舍信息',
+                            title: '请完善用餐信息',
                             icon: 'none'
                         })
                     }
@@ -227,6 +216,7 @@ Page({
                         name: result.data.name,
                         college: result.data.college,
                         dormitory: result.data.dormitory,
+                        food: result.data.food,
                         phone: result.data.phone,
                         stuid: result.data.stuid,
                         sfid: result.data.sfid,
@@ -350,5 +340,10 @@ Page({
             dormitory: e.detail.value
         })
     },
+    bindFoodChange(e){
+        this.setData({
+            food: e.detail.value
+        })
+    }
 
 })

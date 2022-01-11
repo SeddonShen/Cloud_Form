@@ -95,6 +95,7 @@ Page({
     var stuid = app.globalData.stuid
     var phone = app.globalData.phone
     var college = app.globalData.college // dl
+    var food = app.globalData.food
     var dormitory = app.globalData.dormitory // dl
     var sfid = app.globalData.sfid // ssd 
     var that = this
@@ -114,6 +115,7 @@ Page({
           college,
           dormitory,
           sfid,
+          food,
           submit_time
         }),
         openid: _.addToSet(app.globalData.openid)
