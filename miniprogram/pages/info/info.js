@@ -216,7 +216,7 @@ Page({
                         name: result.data.name,
                         college: result.data.college,
                         dormitory: result.data.dormitory,
-                        food: result.data.food,
+                        food: result.data.food==undefined?0:result.data.food,
                         phone: result.data.phone,
                         stuid: result.data.stuid,
                         sfid: result.data.sfid,

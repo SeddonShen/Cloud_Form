@@ -225,6 +225,20 @@ Page({
     // })
   },
   getWork(e) {
+    console.log(app.globalData.food)
+    if(app.globalData.food==undefined){
+      wx.showModal({
+        content: '完善用餐信息并点击[更新信息]后方可报名',
+        success(res){
+          if(res.confirm){
+            wx.redirectTo({
+              url: '/pages/info/info',
+            })
+          }
+        }
+      })
+      return
+    }
     this.setData({
       dlDisabled: true
     })
