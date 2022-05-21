@@ -19,7 +19,7 @@ Page({
     imgList: [],
     captain: false,
     // datesend:'',
-
+    activeName: '',
     place: '', // dl待输入的地点
     dormitory: 0,
     // expostor: 2,
@@ -115,7 +115,8 @@ Page({
     duty.team = app.globalData.group
 
     duty.place = this.data.place // dl
-    duty.dormitory = this.data.dormitory // 宿舍楼 若为0 则不限制宿舍
+    duty.activeName = this.data.activeName
+    duty.dormitory = this.data.dormitory + '' // 宿舍楼 若为0 则不限制宿舍
 
     duty.time_begin = this.data.time_begin
     duty.time_end = this.data.time_end

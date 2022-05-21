@@ -4,6 +4,16 @@
 		<!-- <view class="text-lg text-grey padding-top"><text>仅能同时发布一个班次</text></view>  -->
 		<view>
 			<form bindsubmit="submit">
+        <view style="margin: 0 30rpx;">
+					<view class="picker">
+						<view class="group">
+							<view class="title">活动名称</view>
+							<view class="place-input">
+								<input model:value="{{activeName}}" placeholder="输入名称" type="text" />
+							</view>
+						</view>
+					</view>
+				</view>
 				<picker name="date" mode="date" value="{{date}}" start="2021-12-01" end="2022-12-31" bindchange="dateChange">
 					<view class="group">
 						<view class="title">日期选择</view>

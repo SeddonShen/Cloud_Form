@@ -41,15 +41,15 @@
 					<view style='transform:rotate(0deg);transition:all 0.4s;'></view>
 				</view> -->
 		<view class="cu-card article">
-			<view class="cu-item shadow padding" style="background-color: #68C08B;">
+			<view class="cu-item shadow padding" style="background-color: var(--brown);">
 				<view class="content">
 					<view class="desc flex" style="flex-direction: row; ">
-						<view class="text-content desc-text">正在报名...</view>
-						<!-- <view class="text-content desc-text">30人</view>	 -->
+						<!-- <view class="text-content desc-text">正在报名...</view> -->
+						<view class="text-content desc-text">活动名称：{{!item.activeName?'未命名':item.activeName}}</view>	
 					</view>
 				</view>
 				<view class="index-title">
-					<view class="text-cut ">{{item.place}}</view>
+					<view class="text-cut ">地点：{{item.place}}</view>
 				</view>
 				<view class="content">
 					<view class="desc flex" style="flex-direction: row; ">

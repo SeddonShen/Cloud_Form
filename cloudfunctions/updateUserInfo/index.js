@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
         captain = true
     }
     let result = {
-        group: '西北工业大学疫情防控志愿服务',
+        group: '清华大学疫情防控志愿服务',
         captain: captain,
         name: event.name,
         college: event.college,
@@ -40,7 +40,7 @@ exports.main = async (event, context) => {
     // 插入或更新
     return await userTable.doc(openid).set({
         data: {
-            group: '西北工业大学疫情防控志愿服务',
+            group: '清华大学疫情防控志愿服务',
             captain: captain,
             name: event.name,
             college: event.college,

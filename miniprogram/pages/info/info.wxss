@@ -31,6 +31,6 @@
     margin-top: 25rpx;
 }
 .duty-color{
-    color:#68C08B;
+    color: var(--brown);
     font-weight: 500;
 }
