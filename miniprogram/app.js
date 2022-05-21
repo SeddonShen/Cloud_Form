@@ -83,7 +83,7 @@ App({
             content: data[0].text,
             showCancel: false,
             confirmText: '我已知悉',
-            confirmColor: '#68C08B',
+            confirmColor: '#9962F9',
           })
         }
       }).catch(e => {

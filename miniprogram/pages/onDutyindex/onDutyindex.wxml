@@ -1,4 +1,9 @@
-<view wx:if="{{captain}}" class="text-center" style="padding: 40rpx;">
+<view class="my-banner">
+  <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/3.jpg?sign=c88754727d86b9304d0c6c4dcc28da2d&t=1653124586"></image>
+  <!-- <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/2.png?sign=2c028dedc68745ff2da2befee576267d&t=1653124340"></image> -->
+  <!-- <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/1.png?sign=ef09754243c8d048dc83d5ed16adacc4&t=1653124157"></image> -->
+</view>
+<view wx:if="{{captain}}" class="text-center" style="margin: 30rpx 40rpx;">
 	<view class="padding-xl radius shadow bg-white text-xl">
 		<view style="font-weight: 900;font-size: 40rpx;">
 			{{team}}
@@ -16,7 +21,7 @@
 		</view>
 	</view>
 </view>
-<view class="padding text-center" style="padding: 40rpx;" wx:else>
+<view class="padding text-center" style="padding: 40rpx 40rpx 0rpx;" wx:else>
 	<view class="padding-xl radius shadow bg-white text-xl">
 		<view style="font-weight: 900;font-size: 40rpx;">
 			{{team}}
@@ -29,9 +34,9 @@
 	</view>
 </view>
 
-
-
-
+<view style="margin: 20rpx 30rpx; text-align: center; font-size: 34rpx; color: #888;">
+  志愿活动列表
+</view>
 
 <view wx:if="{{!groupdate.length==0}}" class="cu-list menu card-menu">
 	<navigator wx:for="{{groupdate}}" url="/pages/onDutyindex/signup/signup?_id={{item._id}}" wx:key="index">
@@ -41,7 +46,7 @@
 					<view style='transform:rotate(0deg);transition:all 0.4s;'></view>
 				</view> -->
 		<view class="cu-card article">
-			<view class="cu-item shadow padding" style="background-color: var(--brown);">
+			<view class="cu-item shadow padding" style="background-color: var(--brown); margin: 10rpx 30rpx; padding: 15rpx 0rpx;">
 				<view class="content">
 					<view class="desc flex" style="flex-direction: row; ">
 						<!-- <view class="text-content desc-text">正在报名...</view> -->
@@ -49,7 +54,7 @@
 					</view>
 				</view>
 				<view class="index-title">
-					<view class="text-cut ">地点：{{item.place}}</view>
+					<view class="text-cut ">地点：{{!item.place?'未选择地点':item.place}}</view>
 				</view>
 				<view class="content">
 					<view class="desc flex" style="flex-direction: row; ">
@@ -83,3 +88,4 @@
 
 	</view>
 </view> -->
+<view style="height: 100rpx;"></view>

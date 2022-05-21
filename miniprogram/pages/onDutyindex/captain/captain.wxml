@@ -1,6 +1,6 @@
 <view class="padding text-center">
 	<view class="padding-xl radius shadow bg-white text-xxl" wx:if="{{captain}}">
-		<text wx:if="{{!submit}}" class="text-bold margin-bottom" style="color:#68C08B;">发布排班</text>
+		<text wx:if="{{!submit}}" class="text-bold margin-bottom" style="color:var(--brown);">发布排班</text>
 		<!-- <view class="text-lg text-grey padding-top"><text>仅能同时发布一个班次</text></view>  -->
 		<view>
 			<form bindsubmit="submit">
@@ -161,6 +161,6 @@
 		</view>
 	</view>
 	<view class="padding-xl radius shadow bg-white text-xxl" wx:if="{{!captain}}">
-		<text wx:if="{{!submit}}" class="text-bold margin-bottom" style="color:#68C08B;">暂无信息</text>
+		<text wx:if="{{!submit}}" class="text-bold margin-bottom" style="color:#9962F9;">暂无信息</text>
 	</view>
 </view>

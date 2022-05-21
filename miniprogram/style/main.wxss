@@ -26,7 +26,8 @@
 	--mauve: #9c26b0;
 	--pink: #e03997;
 	/* --brown: #68C08B; */
-	--brown: #68C08B;
+	/* --brown: #68C08B; */
+	--brown: #9962F9;
 	/* --brown: #a5673f; */
 	--grey: #8799a3;
 	--black: #333333;

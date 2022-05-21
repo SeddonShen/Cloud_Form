@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    captain:false,
+    captain: false,
     degs: [0, 0, 0, 0, 0, 0],
     tags: [],
     onduty: {},
@@ -17,50 +17,69 @@ Page({
     value: '',
     dormitories: [
       '未选择宿舍',
-      '海天苑1号楼A座',
-      '海天苑1号楼B座',
-      '海天苑1号楼C座',
-      '海天苑2号楼A座',
-      '海天苑2号楼B座',
-      '海天苑2号楼C座',
-      '海天苑2号楼D座',
-      '海天苑2号楼E座',
-      '海天苑2号楼F座',
-      '海天苑2号楼G座',
-      '海天苑3号楼A座',
-      '海天苑3号楼B座',
-      '星天苑A座',
-      '星天苑B座',
-      '星天苑C座',
-      '星天苑D座',
-      '星天苑E座',
-      '星天苑F座',
-      '星天苑G座',
-      '星天苑H座A',
-      '星天苑H座A女',
-      '星天苑H座B',
-      '星天苑H座C',
-      '云天苑A座',
-      '云天苑B座',
-      '云天苑C座',
-      '云天苑D座',
-      '云天苑E座',
-      '云天苑F座',
-      '1号楼A座',
-      '1号楼B座',
-      '1号楼C座',
-      '2号楼',
-      '3号楼A座',
-      '3号楼B座',
-      '3号楼C座',
-      '4号楼',
-      '5号楼',
-      '6号楼',
-      '11舍',
-      '12舍',
-      '北村三号楼',
-      '7号楼',
-      '其他',
+      '南区1号楼',
+      '南区2号楼',
+      '南区3号楼',
+      '南区4号楼',
+      '南区5号楼',
+      '南区6号楼',
+      '南区7号楼',
+      '南区8号楼',
+      '南区9号楼',
+      '南区10号楼',
+      '南区11号楼',
+      '南区12号楼',
+      '南区13号楼',
+      '南区14号楼',
+      '南区15号楼',
+      '南区16号楼',
+      '南区17号楼',
+      '南区18号楼',
+      '南区19号楼',
+      '南区20号楼',
+      '南区21号楼',
+      '南区22号楼',
+      '南区23号楼',
+      '南区24号楼',
+      '南区25号楼',
+      '南区26号楼',
+      '南区27号楼',
+      '南区28号楼',
+      '南区29号楼',
+      '南区30号楼',
+      '南区31号楼',
+      '南区32号楼',
+      '南区33号楼',
+      '南区34号楼',
+      '南区35号楼',
+      '南区36号楼',
+      '南区37号楼',
+      '紫荆1号楼',
+      '紫荆2号楼',
+      '紫荆3号楼',
+      '紫荆4号楼',
+      '紫荆5号楼',
+      '紫荆6号楼',
+      '紫荆7号楼',
+      '紫荆8号楼',
+      '紫荆9号楼',
+      '紫荆10号楼',
+      '紫荆11号楼',
+      '紫荆12号楼',
+      '紫荆13号楼',
+      '紫荆14号楼',
+      '紫荆15号楼',
+      '紫荆16号楼',
+      '紫荆17号楼',
+      '紫荆18号楼',
+      '紫荆19号楼',
+      '紫荆20号楼',
+      '紫荆21号楼',
+      '紫荆22号楼',
+      '紫荆23号楼',
+      '双清公寓北楼',
+      '双清公寓南楼',
+      '其它',
     ]
   },
 
@@ -71,7 +90,7 @@ Page({
     onDuty.doc(_id).update({
       data: {
         [member]: _.pull(e.currentTarget.dataset.name),
-        count:_.inc(-1)
+        count: _.inc(-1)
       }
     }).catch(err => {
       console.log(err)
@@ -88,9 +107,9 @@ Page({
     var submit_time = new Date()
     onDuty.doc(_id).update({
       data: {
-        count:_.inc(1),
+        count: _.inc(1),
         // [member]: _.addToSet(add_userinfo)
-        [member]: _.push({openid,nickname,stuid,phone,sfid,submit_time})
+        [member]: _.push({ openid, nickname, stuid, phone, sfid, submit_time })
       }
     }).catch(err => {
       console.log(err)
@@ -104,7 +123,7 @@ Page({
       ['degs[' + event.currentTarget.dataset.id + ']']: deg
     })
   },
-  sendone(nickname,openid,stuid) {
+  sendone(nickname, openid, stuid) {
     // var timegang=this.data.onduty.date,
     // timegang = timegang.replace(/(-)/, '年');
     // timegang = timegang.replace(/(-)/, '月');
@@ -112,13 +131,17 @@ Page({
     // pages/onDutyindex/look/show/show
     let detailTime = this.data.onduty.date + ' ' + this.data.onduty.time_begin
     let place = this.data.onduty.place
+    let activeName = this.data.onduty.activeName
+    let notice = this.data.onduty.notice
     wx.cloud.callFunction({
       name: "send",
       data: {
-        touser: openid,
-        page:"pages/onDutyindex/look/show/show?_id="+_id,
+        touser: openid+'',
+        page: "pages/onDutyindex/look/show/show?_id=" + _id,
         name1: nickname,
+        activeName: activeName,
         // number:stuid,
+        notice: notice,
         time: detailTime,
         place: place
       },
@@ -146,7 +169,7 @@ Page({
       content: '结束报名吗',
       confirmText: '确定结束',
       cancelText: '我再想想',
-      confirmColor: '#68C08B',
+      confirmColor: '#9962F9',
       complete: res0 => {
         console.log('完成1')
         console.log(res0.confirm)
@@ -159,7 +182,7 @@ Page({
             console.log(err)
           })
           console.log('调用到这里了1231232')
-        } else if (res0.cancel) {}
+        } else if (res0.cancel) { }
       }
     })
 
@@ -169,7 +192,7 @@ Page({
       content: '将推送通知给队员（只能一次）',
       confirmText: '确定通知',
       cancelText: '我再想想',
-      confirmColor: '#68C08B',
+      confirmColor: '#9962F9',
       complete: res0 => {
         console.log('完成1')
         console.log(res0.confirm)
@@ -177,12 +200,12 @@ Page({
           console.log('调用到这里了1231232')
           onDuty.doc(_id).get().then(ssd => {
             console.log(ssd.data.information_desk.member);
-            ssd.data.information_desk.member.forEach(element =>{
-              console.log(element.nickname,element.openid)
-              this.sendone(element.nickname,element.openid,element.stuid)
+            ssd.data.information_desk.member.forEach(element => {
+              console.log(element.nickname, element.openid)
+              this.sendone(element.nickname, element.openid, element.stuid)
             })
           })
-        } else if (res0.cancel) {}
+        } else if (res0.cancel) { }
       }
     })
 
@@ -204,7 +227,7 @@ Page({
         wx.showModal({
           content: '请选择保存方式',
           confirmText: '复制地址',
-          confirmColor: '#68C08B',
+          confirmColor: '#9962F9',
           cancelText: '保存本地',
           complete: res0 => {
             if (res0.confirm) {
@@ -232,7 +255,7 @@ Page({
 
             wx.showModal({
               content: '已保存在本地' + res2.savedFilePath + '目录下,是否现在打开',
-              confirmColor: '#68C08B',
+              confirmColor: '#9962F9',
               complete: res3 => {
                 if (res3.confirm) {
 
@@ -299,7 +322,7 @@ Page({
     _id = options._id
     var that = this
     this.setData({
-      captain:app.globalData.captain
+      captain: app.globalData.captain
     })
     onDuty.doc(_id).watch({
       onChange: function (snapshot) {
@@ -364,8 +387,8 @@ Page({
   onShareAppMessage(res) {
     if (res.from === 'button') {
       return {
-        title: this.data.onduty.date+"日报班任务",
-        path: 'pages/onDutyindex/signup/signup?_id=' + _id+'&type=share'
+        title: this.data.onduty.date + "日报班任务",
+        path: 'pages/onDutyindex/signup/signup?_id=' + _id + '&type=share'
       }
     }
   }

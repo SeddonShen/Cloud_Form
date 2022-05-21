@@ -136,4 +136,16 @@ Page({
   //   console.log('更新缓存')
   //   wx.setStorageSync('user', userInfo)
   // },
+  onShareAppMessage: function() {
+		wx.showShareMenu({
+	      withShareTicket: true,
+	      menus: ['shareAppMessage', 'shareTimeline']
+	    })
+	},
+
+  onShareTimeline: function () {
+		return {
+      title: '紫荆志愿'
+    }
+	},
 })

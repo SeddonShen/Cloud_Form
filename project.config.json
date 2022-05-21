@@ -40,7 +40,7 @@
     "ignoreUploadUnusedFiles": true,
     "useStaticServer": true
   },
-  "appid": "wx4abd433332988801",
+  "appid": "wx7f4de88fcc63fbe8",
   "projectname": "Devhub_Volunteer",
   "libVersion": "2.21.2",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",

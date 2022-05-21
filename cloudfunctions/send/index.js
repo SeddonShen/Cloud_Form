@@ -8,30 +8,30 @@ exports.main = async (event, context) => {
         page: event.page,
         lang: 'zh_CN',
         data: {
-          name1: {
+          thing14: {
             value: event.name1
           },
           // number11: {
           //   // value: event.name
           //   value: event.number
           // },
-          thing2: {
+          thing1: {
             // value: event.time
-            value: '疫情防控志愿者'
+            value: event.activeName?event.activeName:'无'
           },
-          date4: {
+          date5: {
             value: event.time
           },
           // dl
-          thing5: {
-            value: event.place
+          thing3: {
+            value: event.place?event.place:'无'
           },
-          thing19:{
-            value:'请及时查看QQ群消息加入群聊'
+          thing6:{
+            value:event.notice
           }
         },
         // templateId: '_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro',
-        templateId: '_Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c',
+        templateId: 'l3D7T-LTfRoxXvjjBZ3afLvc6GnhcVwecG_9fZ5oZyE',
         miniprogramState: 'formal'
       })
 

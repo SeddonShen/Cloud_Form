@@ -21,50 +21,69 @@ Page({
     dormitoryLimit: true,
     dormitories: [
       '未选择宿舍',
-      '海天苑1号楼A座',
-      '海天苑1号楼B座',
-      '海天苑1号楼C座',
-      '海天苑2号楼A座',
-      '海天苑2号楼B座',
-      '海天苑2号楼C座',
-      '海天苑2号楼D座',
-      '海天苑2号楼E座',
-      '海天苑2号楼F座',
-      '海天苑2号楼G座',
-      '海天苑3号楼A座',
-      '海天苑3号楼B座',
-      '星天苑A座',
-      '星天苑B座',
-      '星天苑C座',
-      '星天苑D座',
-      '星天苑E座',
-      '星天苑F座',
-      '星天苑G座',
-      '星天苑H座A',
-      '星天苑H座A女',
-      '星天苑H座B',
-      '星天苑H座C',
-      '云天苑A座',
-      '云天苑B座',
-      '云天苑C座',
-      '云天苑D座',
-      '云天苑E座',
-      '云天苑F座',
-      '1号楼A座',
-      '1号楼B座',
-      '1号楼C座',
-      '2号楼',
-      '3号楼A座',
-      '3号楼B座',
-      '3号楼C座',
-      '4号楼',
-      '5号楼',
-      '6号楼',
-      '11舍',
-      '12舍',
-      '北村三号楼',
-      '7号楼',
-      '其他',
+      '南区1号楼',
+'南区2号楼',
+'南区3号楼',
+'南区4号楼',
+'南区5号楼',
+'南区6号楼',
+'南区7号楼',
+'南区8号楼',
+'南区9号楼',
+'南区10号楼',
+'南区11号楼',
+'南区12号楼',
+'南区13号楼',
+'南区14号楼',
+'南区15号楼',
+'南区16号楼',
+'南区17号楼',
+'南区18号楼',
+'南区19号楼',
+'南区20号楼',
+'南区21号楼',
+'南区22号楼',
+'南区23号楼',
+'南区24号楼',
+'南区25号楼',
+'南区26号楼',
+'南区27号楼',
+'南区28号楼',
+'南区29号楼',
+'南区30号楼',
+'南区31号楼',
+'南区32号楼',
+'南区33号楼',
+'南区34号楼',
+'南区35号楼',
+'南区36号楼',
+'南区37号楼',
+'紫荆1号楼',
+'紫荆2号楼',
+'紫荆3号楼',
+'紫荆4号楼',
+'紫荆5号楼',
+'紫荆6号楼',
+'紫荆7号楼',
+'紫荆8号楼',
+'紫荆9号楼',
+'紫荆10号楼',
+'紫荆11号楼',
+'紫荆12号楼',
+'紫荆13号楼',
+'紫荆14号楼',
+'紫荆15号楼',
+'紫荆16号楼',
+'紫荆17号楼',
+'紫荆18号楼',
+'紫荆19号楼',
+'紫荆20号楼',
+'紫荆21号楼',
+'紫荆22号楼',
+'紫荆23号楼',
+'双清公寓北楼',
+'双清公寓南楼',
+      '其它',
     ]
   },
 
@@ -129,7 +148,7 @@ Page({
         })
         wx.showModal({
           content: '报名成功，请关注后续通知',
-          confirmColor: '#68C08B',
+          confirmColor: '#9962F9',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -147,7 +166,7 @@ Page({
         })
         wx.showModal({
           content: '报名失败，请刷新重试',
-          confirmColor: '#68C08B',
+          confirmColor: '#9962F9',
           complete: res => {
             console.log(res)
             if (res.confirm) {
@@ -182,7 +201,7 @@ Page({
     //         console.log('应该有个弹框')
     // wx.showModal({
     //   content: '报名成功，请关注后续通知',
-    //   confirmColor: '#68C08B',
+    //   confirmColor: '#9962F9',
     //   complete: res => {
     //     console.log(res)
     //     if (res.confirm) {
@@ -194,7 +213,7 @@ Page({
     //       fail(res){
     // wx.showModal({
     //   content: '报名失败，请刷新重试',
-    //   confirmColor: '#68C08B',
+    //   confirmColor: '#9962F9',
     //   complete: res => {
     //     console.log(res)
     //     if (res.confirm) {
@@ -209,7 +228,7 @@ Page({
     //     console.log('满了')
     //     wx.showModal({
     //       content: '人员已满',
-    //       confirmColor: '#68C08B',
+    //       confirmColor: '#9962F9',
     //       complete: res => {
     //         console.log(res)
     //         if (res.confirm) {
@@ -239,10 +258,12 @@ Page({
     // }
     wx.requestSubscribeMessage({
       // tmplIds: ['_Vs_yfS8lXCqxQgmtggpFbYTVJtMO2m1bxIyFqBoaro'],
-      tmplIds: ['_Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c'],
+      tmplIds: ['l3D7T-LTfRoxXvjjBZ3afLvc6GnhcVwecG_9fZ5oZyE'],
       success: res => {
         // console.log()
-        var temp_flag = res._Vs_yfS8lXCqxQgmtggpFW2hLUS0cagcv3zRyanAA9c
+        console.log(res)
+        // var temp_flag = res.l3D7T-LTfRoxXvjjBZ3afLvc6GnhcVwecG_9fZ5oZyE
+        var temp_flag = res['l3D7T-LTfRoxXvjjBZ3afLvc6GnhcVwecG_9fZ5oZyE']
         if (temp_flag == 'accept') {
           console.log('订阅成功')
           console.log('开始调用')
@@ -260,7 +281,7 @@ Page({
           })
           wx.showModal({
             content: '请允许接收订阅消息',
-            confirmColor: '#68C08B',
+            confirmColor: '#9962F9',
             complete: res => {
               console.log(res)
               if (res.confirm) {
@@ -283,7 +304,7 @@ Page({
   resetWork() {
     wx.showModal({
       content: '重新选择可能会导致现有岗位被其他志愿者申请哦，是否重新选择',
-      confirmColor: '#68C08B',
+      confirmColor: '#9962F9',
       complete: res => {
         console.log(res)
         if (res.confirm) {

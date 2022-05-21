@@ -40,12 +40,19 @@ Page({
       datesend: true,
       time_begin:true,
       time_end:true,
+      activeName: true,
+      place: true,
       // interval: true,
       progress:true,
       _id:true
     }).get().then(res => {
+      let list = res.data
+      let groupdate = list.map(item=>{
+        item.myDate = item.datesend.split('年')[1]
+        return item
+      })
       this.setData({
-        groupdate:res.data
+        groupdate
       })
     })
   },
