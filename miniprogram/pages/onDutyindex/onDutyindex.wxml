@@ -1,10 +1,13 @@
 <view class="my-banner">
-  <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/3.jpg?sign=c88754727d86b9304d0c6c4dcc28da2d&t=1653124586"></image>
+  <!-- <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/3.jpg?sign=c88754727d86b9304d0c6c4dcc28da2d&t=1653124586"></image> -->
   <!-- <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/2.png?sign=2c028dedc68745ff2da2befee576267d&t=1653124340"></image> -->
-  <!-- <image mode="widthFix" src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/1.png?sign=ef09754243c8d048dc83d5ed16adacc4&t=1653124157"></image> -->
+  <image src="https://636c-cloud1-4gwn1922b02a77df-1312064116.tcb.qcloud.la/1.png?sign=ef09754243c8d048dc83d5ed16adacc4&t=1653124157"></image>
 </view>
 <view wx:if="{{captain}}" class="text-center" style="margin: 30rpx 40rpx;">
 	<view class="padding-xl radius shadow bg-white text-xl">
+    <view style="font-weight: 900;font-size: 40rpx;">
+			从我做起，同心战疫！
+		</view>
 		<view style="font-weight: 900;font-size: 40rpx;">
 			{{team}}
 		</view>

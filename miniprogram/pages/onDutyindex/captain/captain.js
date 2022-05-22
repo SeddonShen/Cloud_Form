@@ -240,6 +240,7 @@ Page({
           cloudPath: util.formatName(new Date()),
           filePath: res.tempFilePaths[0], // 文件路径
           success: res => {
+            wx.hideLoading()
             console.log("图片上传成功")
             console.log(res.fileID)
             console.log(that.data.imgList.length)
@@ -256,6 +257,7 @@ Page({
             // console.log(num)
           },
           fail: err => {
+            wx.hideLoading()
             // handle error
             wx.showModal({
               title: '温馨提示',
@@ -266,22 +268,22 @@ Page({
             })
           }
         })
-        wx.hideLoading({
-          success: (res) => {
-            wx.showModal({
-              title: '图片上传成功！',
-              confirmText: "好的",
-              showCancel: false,
-              success: function (res) {
-                if (res.confirm) {
-                  //点击确定按钮
-                } else if (res.cancel) {
-                  //点击取消按钮
-                }
-              }
-            })
-          },
-        })
+        // wx.hideLoading({
+        //   success: (res) => {
+        //     wx.showModal({
+        //       title: '图片上传成功！',
+        //       confirmText: "好的",
+        //       showCancel: false,
+        //       success: function (res) {
+        //         if (res.confirm) {
+        //           //点击确定按钮
+        //         } else if (res.cancel) {
+        //           //点击取消按钮
+        //         }
+        //       }
+        //     })
+        //   },
+        // })
       }
     });
   },
